@@ -4,7 +4,7 @@ import { IToken } from '../model/model.token';
 import { Store2 } from '../redux/store';
 import { action_set_token } from '../redux/action/token';
 import { Utility } from '../asset/script/utility';
-import { appLocalStorage } from './appLocalStorage';
+// import { appLocalStorage } from './appLocalStorage';
 import { NETWORK_STATUS } from '../enum/NetworkStatus';
 import { action_set_network_status } from '../redux/action/netwok-status';
 
@@ -132,7 +132,7 @@ export abstract class BaseService {
         ax_instance.interceptors.response.use((response) => {
 
             try {
-                appLocalStorage.storeUsefullResponse(response);
+                // appLocalStorage.storeUsefullResponse(response);
             } catch (e) {
                 debugger;
             }
