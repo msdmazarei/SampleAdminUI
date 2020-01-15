@@ -15,7 +15,7 @@ import { action_user_logged_out } from '../../redux/action/user';
 import { action_remove_token } from '../../redux/action/token';
 import { BaseService } from '../../service/service.base';
 import { action_remove_authentication } from '../../redux/action/authentication';
-import { appLocalStorage } from '../../service/appLocalStorage';
+// import { appLocalStorage } from '../../service/appLocalStorage';
 
 interface IHandleError {
     error?: any;
@@ -215,7 +215,7 @@ export abstract class BaseComponent<p extends IBaseProps, S = {}, SS = any> exte
         BaseService.removeToken();
         Store2.dispatch(action_remove_authentication());
 
-        appLocalStorage.afterAppLogout();
+        // appLocalStorage.afterAppLogout();
 
         history.push('/login');
 
