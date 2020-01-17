@@ -258,7 +258,7 @@ class App extends React.Component {
                     <li>
                       <a className="login-area dropdown-toggle" data-toggle="dropdown">
                         <div className="avatar" title="View your public profile">
-                          <img src="assets/img/avatars/adam-jansen.jpg" />
+                          <img src="/static/media/img/icon/avatar.png" />
                         </div>
                         <section>
                           <h2><span className="profile"><span>David Stevenson</span></span></h2>
@@ -271,7 +271,7 @@ class App extends React.Component {
 
                         <li>
                           <div className="avatar-area">
-                            <img src="assets/img/avatars/adam-jansen.jpg" className="avatar" />
+                            <img src="/static/media/img/icon/avatar.png" className="avatar" />
                             <span className="caption">Change Photo</span>
                           </div>
                         </li>
@@ -295,6 +295,21 @@ class App extends React.Component {
                             <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#585858" }} rel="assets/css/skins/gray.min.css"></a></li>
                             <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#474544" }} rel="assets/css/skins/black.min.css"></a></li>
                             <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#001940" }} rel="assets/css/skins/deepblue.min.css"></a></li>
+                          </ul>
+                        </li>
+
+                        <li className="language-area">
+                          <ul className="languagepicker">
+                            <li>
+                              <a href="#" data-lang="fa" data-lang-dir="rtl" title="فارسی">
+                                <img src="/static/media/img/flag/ir.png" />
+                              </a>
+                            </li>
+                            <li>
+                              <a href="#" data-lang="en" data-lang-dir="ltr" title="English">
+                                <img src="/static/media/img/flag/us.png" />
+                              </a>
+                            </li>
                           </ul>
                         </li>
 
@@ -374,7 +389,7 @@ class App extends React.Component {
                   </a>
                 </li>
 
-                <li className="open">
+                <li>
                   <a href="#" className="menu-dropdown">
                     <i className="menu-icon fa fa-desktop"></i>
                     <span className="menu-text"> Elements </span>
