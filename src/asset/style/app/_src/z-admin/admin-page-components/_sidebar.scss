@@ -193,6 +193,7 @@
       border: 0;
       position: relative;
       width: 100%; // bootstrap 3 --> 4
+      z-index: 2; // ?
       &:before {
         display: none;
         content: "";
