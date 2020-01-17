@@ -21,6 +21,7 @@
     min-height: 45px;
     position: relative;
     background: $admin-primary-color;
+    z-index: 2;
     .navbar-container {
       padding-#{$dir-mode-align}: 10px;
     }
@@ -57,6 +58,9 @@
               &:hover {
                 text-decoration: none;
               }
+              &::after {
+                display: none; // ?
+              }
               .icon {
                 display: block;
                 color: #ffffff;
@@ -90,6 +94,7 @@
                 //-o-transition: top 0.3s ease;
                 //transition: top 0.3s ease;
                 @include transition(top 0.3s ease);
+                color: #ffffff;
               }
               &.wave {
                 overflow: visible;
@@ -278,6 +283,9 @@
               -moz-background-clip: padding !important;
               border-radius: 0 !important;
               background-clip: padding-box !important;
+              
+              margin-top: 0; // bts 3 --> 4
+              
               li {
                 background-color: #ffffff;
                 border: 0;
@@ -516,6 +524,7 @@
                     &,
                     a {
                       color: #d0d0d0;
+                      display: block;
                     }
                   }
                   .avatar-area {
