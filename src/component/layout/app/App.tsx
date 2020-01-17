@@ -1061,7 +1061,7 @@ class App extends React.Component {
                     <i className="fa fa-refresh"></i>
                   </a>
                   <a className="fullscreen" id="fullscreen-toggler" href="#">
-                    <i className="fa fa-home"></i>
+                    <i className="fa fa-arrows-alt"></i>
                   </a>
                 </div>
 
