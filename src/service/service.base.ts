@@ -116,7 +116,7 @@ export abstract class BaseService {
 
     getTokenfromServer(data: { username: string, password: string }): Promise<IAPI_Response<IToken>> {
         let username_password_str = data.username + ":" + data.password; // + 'test';
-        let hash = btoa(unescape(encodeURIComponent(username_password_str))); // btoa(token);
+        let hash = btoa(unescape(encodeURIComponent(username_password_str)));
         let basic = "Basic " + hash;
 
         const instance = axios.create({
@@ -124,7 +124,9 @@ export abstract class BaseService {
             headers: { 'Content-Type': 'application/json', 'Authorization': basic }
         });
 
-        return instance.post('/tokens', {});
+        return Promise.resolve({ data: { expiration_date: 1, id: '1', username: 'jafar' } });
+
+        // return instance.post('/tokens', {});
     }
 
     set_store_interceptors(ax_instance: AxiosInstance) {
