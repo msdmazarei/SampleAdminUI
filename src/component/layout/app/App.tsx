@@ -1,6 +1,33 @@
 import React from 'react';
+import { TInternationalization } from '../../../config/setup';
+import { Localization } from '../../../config/localization/localization';
+import { BaseService } from '../../../service/service.base';
+import { MapDispatchToProps, connect } from 'react-redux';
+import { Dispatch } from 'redux';
+import { redux_state } from '../../../redux/app_state';
 
-class App extends React.Component {
+interface IProps {
+  internationalization: TInternationalization;
+}
+interface IState {
+  showConfirmReloadModal: boolean;
+}
+
+class AppComponent extends React.Component<IProps, IState> {
+
+  constructor(props: IProps) {
+    super(props);
+
+    Localization.setLanguage(props.internationalization.flag);
+    document.title = Localization.app_title;
+
+    if (props.internationalization.rtl) {
+      document.body.classList.add('rtl');
+    }
+
+    BaseService.check_network_status();
+  }
+
   render() {
     return (
       <>
@@ -1080,4 +1107,15 @@ class App extends React.Component {
   }
 }
 
-export default App;
+const dispatch2props: MapDispatchToProps<{}, {}> = (dispatch: Dispatch) => {
+  return {
+  }
+}
+
+const state2props = (state: redux_state) => {
+  return {
+    internationalization: state.internationalization,
+  }
+}
+
+export const App = connect(state2props, dispatch2props)(AppComponent);
