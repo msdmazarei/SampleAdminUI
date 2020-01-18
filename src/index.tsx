@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './asset/style/app/skin-default/style.scss';
-import { App } from './component/layout/app/App';
+import { App } from './component/app/App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { persistor, Store2 } from './redux/store';

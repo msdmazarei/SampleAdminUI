@@ -1,10 +1,10 @@
 import React from 'react';
-import { TInternationalization } from '../../../config/setup';
-import { Localization } from '../../../config/localization/localization';
-import { BaseService } from '../../../service/service.base';
+import { TInternationalization } from '../../config/setup';
+import { Localization } from '../../config/localization/localization';
+import { BaseService } from '../../service/service.base';
 import { MapDispatchToProps, connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { redux_state } from '../../../redux/app_state';
+import { redux_state } from '../../redux/app_state';
 
 interface IProps {
   internationalization: TInternationalization;
