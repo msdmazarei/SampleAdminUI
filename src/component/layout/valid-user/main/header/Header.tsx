@@ -9,18 +9,61 @@ import { CmpUtility } from '../../../../_base/CmpUtility';
 import { NavLink } from "react-router-dom";
 import { Localization } from '../../../../../config/localization/localization';
 import { Dropdown } from 'react-bootstrap';
+import { TInternationalization } from '../../../../../config/setup';
+import { action_change_app_flag } from '../../../../../redux/action/internationalization';
+import { BaseComponent } from '../../../../_base/BaseComponent';
 
 interface IProps {
     history: History;
     match: any;
     network_status: NETWORK_STATUS;
     logged_in_user: IUser | null;
+    internationalization: TInternationalization;
+    change_app_flag?: (internationalization: TInternationalization) => void;
 }
 interface IState {
 }
 
-class LayoutMainHeaderComponent extends React.Component<IProps, IState> {
+class LayoutMainHeaderComponent extends BaseComponent<IProps, IState> {
     state = {
+    }
+
+    private changeLang(lang: string) {
+        // debugger;
+        if (!this.props.change_app_flag) return;
+        if (lang === 'fa') {
+            document.body.classList.add('rtl');
+            Localization.setLanguage('fa');
+            document.title = Localization.more;
+            this.props.change_app_flag({
+                rtl: true,
+                language: 'فارسی',
+                flag: 'fa',
+            });
+        } else if (lang === 'en') {
+            document.body.classList.remove('rtl');
+            Localization.setLanguage('en');
+            document.title = Localization.more;
+            this.props.change_app_flag({
+                rtl: false,
+                language: 'english',
+                flag: 'en',
+            });
+        } else if (lang === 'ar') {
+            document.body.classList.add('rtl');
+            Localization.setLanguage('ar');
+            document.title = Localization.more;
+            this.props.change_app_flag({
+                rtl: true,
+                language: 'العربیه',
+                flag: 'ar',
+            });
+        }
+
+    }
+
+    private logout() {
+        this.onApplogout(this.props.history);
     }
 
     render() {
@@ -331,12 +374,12 @@ class LayoutMainHeaderComponent extends React.Component<IProps, IState> {
                                                 <li className="language-area">
                                                     <ul className="languagepicker">
                                                         <li>
-                                                            <a href="#" data-lang="fa" data-lang-dir="rtl" title="فارسی">
+                                                            <a onClick={() => this.changeLang('fa')} title="فارسی">
                                                                 <img src="/static/media/img/flag/ir.png" />
                                                             </a>
                                                         </li>
                                                         <li>
-                                                            <a href="#" data-lang="en" data-lang-dir="ltr" title="English">
+                                                            <a onClick={() => this.changeLang('en')} title="English">
                                                                 <img src="/static/media/img/flag/us.png" />
                                                             </a>
                                                         </li>
@@ -344,7 +387,7 @@ class LayoutMainHeaderComponent extends React.Component<IProps, IState> {
                                                 </li>
 
                                                 <li className="dropdown-footer">
-                                                    <a onClick={() => { debugger; }}>
+                                                    <a onClick={() => this.logout()}>
                                                         {Localization.Sign_out}
                                                     </a>
                                                 </li>
@@ -460,6 +503,7 @@ class LayoutMainHeaderComponent extends React.Component<IProps, IState> {
 
 const dispatch2props: MapDispatchToProps<{}, {}> = (dispatch: Dispatch) => {
     return {
+        change_app_flag: (internationalization: TInternationalization) => dispatch(action_change_app_flag(internationalization)),
     }
 }
 

@@ -2,7 +2,7 @@ export const fa = {
     login: "ورود",
     register: "ثبت نام",
     sign_in: 'ورود',
-    Sign_out:'خروچ از سیستم',
+    Sign_out:'خروج از سیستم',
     app_title: 'ادمین کاتد',
     app_title_: 'عنوان برنامه',
     app_logo: 'ادمین کاتد',
