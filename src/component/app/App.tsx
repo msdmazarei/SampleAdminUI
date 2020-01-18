@@ -16,28 +16,11 @@ const appRoutes = (
 
       <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
       <RouteLayoutValidUser exact path="/dashboard" />
-      <RouteLayoutValidUser path="/dashboard-more/:paymentStatus?" />
-      <RouteLayoutValidUser path="/store" />
-      <RouteLayoutValidUser path="/library" />
-      <RouteLayoutValidUser path="/book-detail/:bookId" />
-      <RouteLayoutValidUser path="/category/:searchType/:searchValue" />
-      <RouteLayoutValidUser path="/search/:searchQuery" />
-      <RouteLayoutValidUser path="/cart/:paymentStatus?" />
-      <RouteLayoutValidUser path="/collection/:collectionTitle/:isUncollected?" />
-      <RouteLayoutValidUser path="/collection-update/:collectionTitle" />
       <RouteLayoutValidUser path="/profile" />
-      <RouteLayoutValidUser path="/purchase-history" />
 
       <RouteLayoutAccount path="/login" component={Login} />
       {/* <RouteLayoutAccount path="/register" component={Register} /> */}
       {/* <RouteLayoutAccount path="/forgot-password" component={ForgotPassword} /> */}
-
-      <RouteLayoutValidUser path="/reader/:bookId/:isOriginalFile/overview" />
-      <RouteLayoutValidUser path="/reader/:bookId/:isOriginalFile/reading" />
-      <RouteLayoutValidUser path="/reader/:bookId/:isOriginalFile/scroll" />
-      <RouteLayoutValidUser path="/reader/:bookId/:isOriginalFile/audio" />
-
-      <RouteLayoutValidUser path="/settings" />
 
       <RouteLayoutValidUser />
 
