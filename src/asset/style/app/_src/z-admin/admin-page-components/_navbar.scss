@@ -58,7 +58,7 @@
               &:hover {
                 text-decoration: none;
               }
-              &::after {
+              &.dropdown-toggle::after {
                 display: none; // ?
               }
               .icon {
