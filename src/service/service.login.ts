@@ -14,12 +14,12 @@ export class LoginService extends BaseService {
     profile(): Promise<IAPI_Response<IUser>> {
         const mock: any = {
             data: {
-                name: 'a',
-                username: 'b',
+                name: 'جعفر',
+                username: 'jafar1',
                 id: '1',
                 creation_date: 5,
                 version: 1,
-                person: { name: 'a' }
+                person: { name: 'جعفر', last_name: 'تقوی', email: 'jafar_taghavi@gmail.com' }
             }
         };
         return Promise.resolve(mock);

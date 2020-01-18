@@ -124,7 +124,7 @@ export abstract class BaseService {
             headers: { 'Content-Type': 'application/json', 'Authorization': basic }
         });
 
-        return Promise.resolve({ data: { expiration_date: 1, id: '1', username: 'jafar' } });
+        return Promise.resolve({ data: { expiration_date: 1, id: '1', username: 'jafar1' } });
 
         // return instance.post('/tokens', {});
     }
