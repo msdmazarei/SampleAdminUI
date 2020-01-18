@@ -2,6 +2,7 @@ export const en = {
     login: "login",
     register: "register",
     sign_in: 'sign in',
+    Sign_out: 'Sign out',
     app_title: 'catod admin',
     app_title_: 'app title',
     app_logo: 'catodAdmin',

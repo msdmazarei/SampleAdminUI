@@ -8,6 +8,7 @@ import { IUser } from '../../../../../model/model.user';
 import { CmpUtility } from '../../../../_base/CmpUtility';
 import { NavLink } from "react-router-dom";
 import { Localization } from '../../../../../config/localization/localization';
+import { Dropdown } from 'react-bootstrap';
 
 interface IProps {
     history: History;
@@ -277,7 +278,80 @@ class LayoutMainHeaderComponent extends React.Component<IProps, IState> {
                                                 <i className="icon fa fa-comment"></i>
                                             </a>
                                         </li>
-                                        <li>
+                                        <Dropdown as="li" >
+                                            <Dropdown.Toggle
+                                                as="a"
+                                                id="dropdown-login-area"
+                                                className="login-area"
+                                            >
+                                                <div className="avatar" title="View your public profile">
+                                                    <img src="/static/media/img/icon/avatar.png" />
+                                                </div>
+                                                <section>
+                                                    <h2><span className="profile"><span>{fullname}</span></span></h2>
+                                                </section>
+                                            </Dropdown.Toggle>
+
+                                            <Dropdown.Menu as="ul" className="pull-right dropdown-arrow dropdown-login-area">
+                                                <li className="username"><a>{username}</a></li>
+                                                <li className="email"><a>{email}</a></li>
+
+                                                <li>
+                                                    <div className="avatar-area">
+                                                        <img src="/static/media/img/icon/avatar.png" className="avatar" />
+                                                        {/* <span className="caption">Change Photo</span> */}
+                                                    </div>
+                                                </li>
+
+                                                <li className="edit">
+                                                    {/* <a href="/profile.html" className="pull-left">Profile</a> */}
+                                                    {/* <a href="#" className="pull-right">Setting</a> */}
+                                                    <NavLink to="/profile" className="pull-left text-capitalize" activeClassName="active">
+                                                        {Localization.profile}
+                                                    </NavLink>
+                                                </li>
+
+                                                <li className="theme-area d-none">
+                                                    <ul className="colorpicker" id="skin-changer">
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#5DB2FF" }} rel="assets/css/skins/blue.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#2dc3e8" }} rel="assets/css/skins/azure.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#03B3B2" }} rel="assets/css/skins/teal.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#53a93f" }} rel="assets/css/skins/green.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#FF8F32" }} rel="assets/css/skins/orange.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#cc324b" }} rel="assets/css/skins/pink.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#AC193D" }} rel="assets/css/skins/darkred.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#8C0095" }} rel="assets/css/skins/purple.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#0072C6" }} rel="assets/css/skins/darkblue.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#585858" }} rel="assets/css/skins/gray.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#474544" }} rel="assets/css/skins/black.min.css"></a></li>
+                                                        <li><a className="colorpick-btn" href="#" style={{ backgroundColor: "#001940" }} rel="assets/css/skins/deepblue.min.css"></a></li>
+                                                    </ul>
+                                                </li>
+
+                                                <li className="language-area">
+                                                    <ul className="languagepicker">
+                                                        <li>
+                                                            <a href="#" data-lang="fa" data-lang-dir="rtl" title="فارسی">
+                                                                <img src="/static/media/img/flag/ir.png" />
+                                                            </a>
+                                                        </li>
+                                                        <li>
+                                                            <a href="#" data-lang="en" data-lang-dir="ltr" title="English">
+                                                                <img src="/static/media/img/flag/us.png" />
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </li>
+
+                                                <li className="dropdown-footer">
+                                                    <a onClick={() => { debugger; }}>
+                                                        {Localization.Sign_out}
+                                                    </a>
+                                                </li>
+                                            </Dropdown.Menu>
+                                        </Dropdown>
+
+                                        <li className="d-none">
                                             <a className="login-area dropdown-toggle" data-toggle="dropdown">
                                                 <div className="avatar" title="View your public profile">
                                                     <img src="/static/media/img/icon/avatar.png" />

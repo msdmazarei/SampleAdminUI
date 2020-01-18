@@ -283,9 +283,10 @@
               -moz-background-clip: padding !important;
               border-radius: 0 !important;
               background-clip: padding-box !important;
-              
+
               margin-top: 0; // bts 3 --> 4
-              
+              // top: calc(100% - 5px) !important; // react-bootstrap: transform: translate3d(0px, 5px, 0px);
+
               li {
                 background-color: #ffffff;
                 border: 0;

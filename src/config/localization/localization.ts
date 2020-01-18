@@ -14,6 +14,7 @@ interface ILocalization extends LocalizedStringsMethods {
     login: string;
     register: String;
     sign_in: string;
+    Sign_out: string;
     app_title: string;
     app_title_: string;
     app_logo: string;
