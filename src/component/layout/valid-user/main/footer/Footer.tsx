@@ -17,11 +17,7 @@ class LayoutMainFooterComponent extends BaseComponent<IProps, any>{
 
     render() {
         return (
-            <>
-                <footer className="footer fixed-bottom">
-                    footer
-                </footer>
-            </>
+            <></>
         )
     }
 }

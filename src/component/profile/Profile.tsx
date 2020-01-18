@@ -26,9 +26,7 @@ class ProfileComponent extends BaseComponent<IProps, IState> {
   render() {
     return (
       <>
-        <div className="profile-wrapper mt-3 mb-5">
-          
-        </div>
+        <div>catod profile</div>
 
         <ToastContainer {...this.getNotifyContainerConfig()} />
       </>
