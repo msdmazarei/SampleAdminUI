@@ -2,10 +2,10 @@ export const en = {
     login: "login",
     register: "register",
     sign_in: 'sign in',
-    app_title: 'book store',
+    app_title: 'catod admin',
     app_title_: 'app title',
-    app_logo: 'bookstore',
-    brand_name: 'bookstore',
+    app_logo: 'catodAdmin',
+    brand_name: 'catodAdmin',
     sign_in_bookstore_account: 'sign in with your bookstore account',
     forgot_password: 'forgot password?',
     msg: {

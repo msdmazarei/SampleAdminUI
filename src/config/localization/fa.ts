@@ -2,10 +2,10 @@ export const fa = {
     login: "ورود",
     register: "ثبت نام",
     sign_in: 'ورود',
-    app_title: 'فروشگاه کتاب',
+    app_title: 'ادمین کاتد',
     app_title_: 'عنوان برنامه',
-    app_logo: 'فروشگاه کتاب',
-    brand_name: 'فروشگاه کتاب',
+    app_logo: 'ادمین کاتد',
+    brand_name: 'ادمین کاتد',
     sign_in_bookstore_account: 'با حساب فروشگاه کتاب خود داخل شوید',
     forgot_password: 'رمز عبورتان را فراموش کردید؟',
     msg: {

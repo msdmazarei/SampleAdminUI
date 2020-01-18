@@ -5,6 +5,45 @@ import { BaseService } from '../../service/service.base';
 import { MapDispatchToProps, connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { redux_state } from '../../redux/app_state';
+import { BrowserRouter as Router, Route, Switch, Redirect, HashRouter } from 'react-router-dom';
+import { RouteLayoutValidUser } from '../layout/valid-user/ValidUser';
+import { RouteLayoutAccount } from '../layout/account/Account';
+import { Login } from '../login/Login';
+
+const appRoutes = (
+  <HashRouter>
+    <Switch>
+
+      <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
+      <RouteLayoutValidUser exact path="/dashboard" />
+      <RouteLayoutValidUser path="/dashboard-more/:paymentStatus?" />
+      <RouteLayoutValidUser path="/store" />
+      <RouteLayoutValidUser path="/library" />
+      <RouteLayoutValidUser path="/book-detail/:bookId" />
+      <RouteLayoutValidUser path="/category/:searchType/:searchValue" />
+      <RouteLayoutValidUser path="/search/:searchQuery" />
+      <RouteLayoutValidUser path="/cart/:paymentStatus?" />
+      <RouteLayoutValidUser path="/collection/:collectionTitle/:isUncollected?" />
+      <RouteLayoutValidUser path="/collection-update/:collectionTitle" />
+      <RouteLayoutValidUser path="/profile" />
+      <RouteLayoutValidUser path="/purchase-history" />
+
+      <RouteLayoutAccount path="/login" component={Login} />
+      {/* <RouteLayoutAccount path="/register" component={Register} /> */}
+      {/* <RouteLayoutAccount path="/forgot-password" component={ForgotPassword} /> */}
+
+      <RouteLayoutValidUser path="/reader/:bookId/:isOriginalFile/overview" />
+      <RouteLayoutValidUser path="/reader/:bookId/:isOriginalFile/reading" />
+      <RouteLayoutValidUser path="/reader/:bookId/:isOriginalFile/scroll" />
+      <RouteLayoutValidUser path="/reader/:bookId/:isOriginalFile/audio" />
+
+      <RouteLayoutValidUser path="/settings" />
+
+      <RouteLayoutValidUser />
+
+    </Switch>
+  </HashRouter>
+);
 
 interface IProps {
   internationalization: TInternationalization;
@@ -31,6 +70,10 @@ class AppComponent extends React.Component<IProps, IState> {
   render() {
     return (
       <>
+        <Router>
+          {appRoutes}
+        </Router>
+
         <div className="loading-container loading-inactive">
           <div className="loader"></div>
         </div>
