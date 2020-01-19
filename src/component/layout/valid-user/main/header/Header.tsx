@@ -387,7 +387,7 @@ class LayoutMainHeaderComponent extends BaseComponent<IProps, IState> {
                                                 </li>
 
                                                 <li className="dropdown-footer">
-                                                    <a onClick={() => this.logout()}>
+                                                    <a className="cursor-pointer" onClick={() => this.logout()}>
                                                         {Localization.Sign_out}
                                                     </a>
                                                 </li>
