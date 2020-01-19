@@ -15,19 +15,39 @@
   .dropdown-icon {
     display: inline-block;
     font-size: 13px;
-    margin-#{$dir-mode-align-inverse}: 5px;
+    // margin-#{$dir-mode-align-inverse}: 5px;
+    body:not(.rtl) & {
+      margin-right: 5px;
+    }
+    body.rtl & {
+      margin-left: 5px;
+    }
   }
   > li {
     > a {
       font-size: 13px;
-      padding-#{$dir-mode-align}: 11px;
-      padding-#{$dir-mode-align-inverse}: 11px;
+      // padding-#{$dir-mode-align}: 11px;
+      // padding-#{$dir-mode-align-inverse}: 11px;
+      body:not(.rtl) & {
+        padding-left: 11px;
+        padding-right: 11px;
+      }
+      body.rtl & {
+        padding-right: 11px;
+        padding-left: 11px;
+      }
       margin-bottom: 1px;
       margin-top: 1px;
       .dropdown-expand {
         position: absolute;
         top: 5px;
-        #{$dir-mode-align-inverse}: 10px;
+        // #{$dir-mode-align-inverse}: 10px;
+        body:not(.rtl) & {
+          right: 10px;
+        }
+        body.rtl & {
+          left: 10px;
+        }
         font-size: 13px;
       }
       .badge,
@@ -48,7 +68,13 @@
     background-clip: padding-box;
     > a {
       &:after {
-        margin-#{$dir-mode-align-inverse}: -5px;
+        // margin-#{$dir-mode-align-inverse}: -5px;
+        body:not(.rtl) & {
+          margin-right: -5px;
+        }
+        body.rtl & {
+          margin-left: -5px;
+        }
       }
     }
   }
@@ -57,23 +83,49 @@
     margin-bottom: -1px;
   }
   &.pull-right {
-    #{$dir-mode-align}: auto;
-    #{$dir-mode-align-inverse}: 0;
+    // #{$dir-mode-align}: auto;
+    // #{$dir-mode-align-inverse}: 0;
+    body:not(.rtl) & {
+      left: auto;
+      right: 0;
+    }
+    body.rtl & {
+      right: auto;
+      left: 0;
+    }
   }
   &.dropdown-arrow {
     &.pull-right {
       &:before {
-        #{$dir-mode-align}: auto;
-        #{$dir-mode-align-inverse}: 9px;
+        // #{$dir-mode-align}: auto;
+        // #{$dir-mode-align-inverse}: 9px;
+        body:not(.rtl) & {
+          left: auto;
+          right: 9px;
+        }
+        body.rtl & {
+          right: auto;
+          left: 9px;
+        }
       }
     }
     &:before {
       border-bottom: 7px solid #ffffff;
-      border-#{$dir-mode-align}: 7px solid transparent;
-      border-#{$dir-mode-align-inverse}: 7px solid transparent;
-      content: '';
+      // border-#{$dir-mode-align}: 7px solid transparent;
+      // border-#{$dir-mode-align-inverse}: 7px solid transparent;
+      content: "";
       display: inline-block;
-      #{$dir-mode-align}: 9px;
+      // #{$dir-mode-align}: 9px;
+      body:not(.rtl) & {
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        left: 9px;
+      }
+      body.rtl & {
+        border-right: 7px solid transparent;
+        border-left: 7px solid transparent;
+        right: 9px;
+      }
       position: absolute;
       top: -7px;
     }
@@ -99,7 +151,7 @@
   .dropdown-#{$color} .dropdown-submenu:hover > a,
   .nav-tabs .dropdown-#{$color} li > a:focus {
     background: app-color($color);
-    color: app-color($color, 'color');
+    color: app-color($color, "color");
   }
 }
 
@@ -119,7 +171,13 @@
   &:hover {
     > .dropdown-menu {
       display: block;
-      #{$dir-mode-align}: 100%;
+      // #{$dir-mode-align}: 100%;
+      body:not(.rtl) & {
+        left: 100%;
+      }
+      body.rtl & {
+        right: 100%;
+      }
       top: -2px;
     }
   }
