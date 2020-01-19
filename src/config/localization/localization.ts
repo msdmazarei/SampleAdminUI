@@ -19,6 +19,12 @@ interface ILocalization extends LocalizedStringsMethods {
     app_title_: string;
     app_logo: string;
     brand_name: string;
+    dashboard: string;
+
+    
+
+
+
     sign_in_bookstore_account: string;
     forgot_password: string;
     msg: {

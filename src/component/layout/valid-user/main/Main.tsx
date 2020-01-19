@@ -24,6 +24,10 @@ interface IProps {
 }
 
 class LayoutMainComponent extends React.Component<IProps> {
+    
+    componentDidMount(){
+
+    }
 
     render() {
         return (

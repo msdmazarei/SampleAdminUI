@@ -7,6 +7,14 @@ export const fa = {
     app_title_: 'عنوان برنامه',
     app_logo: 'ادمین کاتد',
     brand_name: 'ادمین کاتد',
+    dashboard: 'داشبورد',
+
+
+    
+
+
+
+
     sign_in_bookstore_account: 'با حساب فروشگاه کتاب خود داخل شوید',
     forgot_password: 'رمز عبورتان را فراموش کردید؟',
     msg: {

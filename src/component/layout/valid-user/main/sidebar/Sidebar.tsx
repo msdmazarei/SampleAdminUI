@@ -6,6 +6,8 @@ import { TInternationalization } from "../../../../../config/setup";
 import { IUser } from "../../../../../model/model.user";
 import { BaseComponent } from "../../../../_base/BaseComponent";
 import { History } from "history";
+import { Localization } from "../../../../../config/localization/localization";
+import { NavLink } from "react-router-dom";
 
 export interface IProps {
     internationalization: TInternationalization;
@@ -14,6 +16,10 @@ export interface IProps {
 }
 
 class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
+    isMenuActive(pathname: string): boolean {
+        console.log(this.props.history.location);
+        return this.props.history.location.pathname === pathname;
+    }
 
     render() {
         return (
@@ -27,11 +33,15 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
 
                     <ul className="nav sidebar-menu">
 
-                        <li>
-                            <a href="index.html">
+                        <li className={this.isMenuActive('/dashboard') ? "active" : ''}>
+                            <NavLink to="/dashboard" className="text-capitalize">
                                 <i className="menu-icon fa fa-home"></i>
-                                <span className="menu-text"> Dashboard </span>
-                            </a>
+                                <span className="menu-text"> {Localization.dashboard} </span>
+                            </NavLink>
+                            {/* <a href="index.html">
+                                <i className="menu-icon fa fa-home"></i>
+                                <span className="menu-text"> {Localization.dashboard} </span>
+                            </a> */}
                         </li>
 
                         <li>

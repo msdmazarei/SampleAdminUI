@@ -7,6 +7,11 @@ export const en = {
     app_title_: 'app title',
     app_logo: 'catodAdmin',
     brand_name: 'catodAdmin',
+    dashboard: 'dashboard',
+
+
+
+
     sign_in_bookstore_account: 'sign in with your bookstore account',
     forgot_password: 'forgot password?',
     msg: {
