@@ -637,7 +637,7 @@
               }
               width: 195px;
               border-bottom: 1px solid #f3f3f3;
-              @include box-shadow(none);
+              @include box-shadow(none !important);
             }
           }
           &:hover {
