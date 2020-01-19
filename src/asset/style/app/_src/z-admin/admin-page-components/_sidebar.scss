@@ -22,12 +22,30 @@
       display: none;
     }
     & ~ .page-content {
-      margin-#{$dir-mode-align}: 0 !important;
+      // margin-#{$dir-mode-align}: 0 !important;
+      body:not(.rtl) & {
+        margin-left: 0 !important;
+      }
+      body.rtl & {
+        margin-right: 0 !important;
+      }
       .breadcrumbs-fixed {
-        #{$dir-mode-align}: 0 !important;
+        // #{$dir-mode-align}: 0 !important;
+        body:not(.rtl) & {
+          left: 0 !important;
+        }
+        body.rtl & {
+          right: 0 !important;
+        }
       }
       .page-header-fixed {
-        #{$dir-mode-align}: 0 !important;
+        // #{$dir-mode-align}: 0 !important;
+        body:not(.rtl) & {
+          left: 0 !important;
+        }
+        body.rtl & {
+          right: 0 !important;
+        }
       }
     }
   }
@@ -38,13 +56,25 @@
     width: 219px;
     bottom: 0;
     top: 0;
-    #{$dir-mode-align}: 5px;
+    // #{$dir-mode-align}: 5px;
+    body:not(.rtl) & {
+      left: 5px;
+    }
+    body.rtl & {
+      right: 5px;
+    }
     background-color: #ffffff;
     @include box-shadow(0 0 10px 0 rgba(0, 0, 0, 0.2));
     z-index: 1;
   }
   .sidebar-header-wrapper {
-    margin-#{$dir-mode-align}: 5px;
+    // margin-#{$dir-mode-align}: 5px;
+    body:not(.rtl) & {
+      margin-left: 5px;
+    }
+    body.rtl & {
+      margin-right: 5px;
+    }
     height: 40px;
     margin-bottom: 0;
     position: relative;
@@ -55,9 +85,17 @@
       display: block;
       position: absolute;
       top: 0;
-      #{$dir-mode-align}: 0;
+      // #{$dir-mode-align}: 0;
       border: 1px solid #ffffff;
-      padding-#{$dir-mode-align}: 40px;
+      // padding-#{$dir-mode-align}: 40px;
+      body:not(.rtl) & {
+        left: 0;
+        padding-left: 40px;
+      }
+      body.rtl & {
+        right: 0;
+        padding-right: 40px;
+      }
       width: 100%;
       &:focus {
         @include box-shadow(none);
@@ -94,7 +132,13 @@
       cursor: pointer;
       display: inline-block;
       height: 12px;
-      #{$dir-mode-align}: 20px;
+      // #{$dir-mode-align}: 20px;
+      body:not(.rtl) & {
+        left: 20px;
+      }
+      body.rtl & {
+        right: 20px;
+      }
       position: absolute;
       top: 14px;
       width: 12px;
@@ -109,8 +153,10 @@
       opacity: 1;
       padding: 10px;
       position: absolute;
-      #{$dir-mode-align-inverse}: 0;
-      #{$dir-mode-align}: 0;
+      // #{$dir-mode-align-inverse}: 0;
+      // #{$dir-mode-align}: 0;
+      right: 0;
+      left: 0;
       top: 40px;
       z-index: 4;
     }
@@ -119,17 +165,29 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    margin-#{$dir-mode-align}: 5px;
+    // margin-#{$dir-mode-align}: 5px;
+    body:not(.rtl) & {
+      margin-left: 5px;
+    }
+    body.rtl & {
+      margin-right: 5px;
+    }
     a {
       display: block;
       height: 38px;
       line-height: 36px;
       margin: 0;
       //padding: 0 16px 0 7px;
-      @if $dir-mode-direction == rtl {
-        padding: 0 7px 0 16px;
-      } @else {
+      // @if $dir-mode-direction == rtl {
+      //   padding: 0 7px 0 16px;
+      // } @else {
+      //   padding: 0 16px 0 7px;
+      // }
+      body:not(.rtl) & {
         padding: 0 16px 0 7px;
+      }
+      body.rtl & {
+        padding: 0 7px 0 16px;
       }
       -webkit-text-shadow: none !important;
       text-shadow: none !important;
@@ -160,7 +218,13 @@
         line-height: 10px;
         height: 10px;
         width: 10px;
-        #{$dir-mode-align-inverse}: 12px;
+        // #{$dir-mode-align-inverse}: 12px;
+        body:not(.rtl) & {
+          right: 12px;
+        }
+        body.rtl & {
+          left: 12px;
+        }
         top: 15px;
         margin: 0;
         text-align: center;
@@ -177,10 +241,16 @@
         font-style: normal;
         font-weight: normal;
         &:before {
-          @if $dir-mode-direction == rtl {
+          /* @if $dir-mode-direction == rtl {
             content: "\f104";
           } @else {
             content: "\f105";
+          } */
+          body:not(.rtl) & {
+            content: "\f105";
+          }
+          body.rtl & {
+            content: "\f104";
           }
           //content: "\f105" /*rtl:"\f104"*/
         }
@@ -200,7 +270,13 @@
         position: absolute;
         top: 0;
         bottom: 0;
-        #{$dir-mode-align}: -4px;
+        // #{$dir-mode-align}: -4px;
+        body:not(.rtl) & {
+          left: -4px;
+        }
+        body.rtl & {
+          right: -4px;
+        }
         width: 4px;
         max-width: 4px;
         overflow: hidden;
@@ -211,10 +287,16 @@
         > a {
           color: #262626;
           .menu-expand {
-            @if $dir-mode-direction == rtl {
+            /* @if $dir-mode-direction == rtl {
               @include transform(rotate(-90deg));
             } @else {
               @include transform(rotate(90deg));
+            } */
+            body:not(.rtl) & {
+              @include transform(rotate(90deg));
+            }
+            body.rtl & {
+              @include transform(rotate(-90deg));
             }
           }
         }
@@ -263,10 +345,18 @@
           display: block;
           position: absolute;
           z-index: 1;
-          #{$dir-mode-align}: 23px;
+          // #{$dir-mode-align}: 23px;
           top: 0;
           bottom: 19px;
-          border-#{$dir-mode-align}: 1px solid #e2e2e2;
+          // border-#{$dir-mode-align}: 1px solid #e2e2e2;
+          body:not(.rtl) & {
+            left: 23px;
+            border-left: 1px solid #e2e2e2;
+          }
+          body.rtl & {
+            right: 23px;
+            border-right: 1px solid #e2e2e2;
+          }
         }
         > li {
           > a {
@@ -276,7 +366,13 @@
               position: absolute;
               width: 5px;
               height: 5px;
-              #{$dir-mode-align}: 21px;
+              // #{$dir-mode-align}: 21px;
+              body:not(.rtl) & {
+                left: 21px;
+              }
+              body.rtl & {
+                right: 21px;
+              }
               top: 17px;
               background-color: #ffffff;
               border: 1px solid #e2e2e2;
@@ -318,7 +414,13 @@
       border-top: 0;
       z-index: 123;
       li {
-        margin-#{$dir-mode-align}: 0;
+        // margin-#{$dir-mode-align}: 0;
+        body:not(.rtl) & {
+          margin-left: 0;
+        }
+        body.rtl & {
+          margin-right: 0;
+        }
         position: relative;
         &.open {
           &:before {
@@ -337,7 +439,13 @@
       }
       > li {
         > a {
-          padding-#{$dir-mode-align}: 40px;
+          // padding-#{$dir-mode-align}: 40px;
+          body:not(.rtl) & {
+            padding-left: 40px;
+          }
+          body.rtl & {
+            padding-right: 40px;
+          }
           /*long text*/
           overflow: hidden;
           text-overflow: ellipsis;
@@ -353,12 +461,24 @@
           border-bottom: 1px solid #eeeeee;
           > li {
             > a {
-              padding-#{$dir-mode-align}: 50px;
+              // padding-#{$dir-mode-align}: 50px;
+              body:not(.rtl) & {
+                padding-left: 50px;
+              }
+              body.rtl & {
+                padding-right: 50px;
+              }
             }
             .submenu {
               > li {
                 > a {
-                  padding-#{$dir-mode-align}: 70px;
+                  // padding-#{$dir-mode-align}: 70px;
+                  body:not(.rtl) & {
+                    padding-left: 70px;
+                  }
+                  body.rtl & {
+                    padding-right: 70px;
+                  }
                 }
               }
             }
@@ -370,12 +490,30 @@
   &.menu-compact {
     width: 42px;
     ~ .page-content {
-      margin-#{$dir-mode-align}: 43px;
+      // margin-#{$dir-mode-align}: 43px;
+      body:not(.rtl) & {
+        margin-left: 43px;
+      }
+      body.rtl & {
+        margin-right: 43px;
+      }
       .breadcrumbs-fixed {
-        #{$dir-mode-align}: 47px;
+        // #{$dir-mode-align}: 47px;
+        body:not(.rtl) & {
+          left: 47px;
+        }
+        body.rtl & {
+          right: 47px;
+        }
       }
       .page-header-fixed {
-        #{$dir-mode-align}: 47px;
+        // #{$dir-mode-align}: 47px;
+        body:not(.rtl) & {
+          left: 47px;
+        }
+        body.rtl & {
+          right: 47px;
+        }
       }
     }
     &:before {
@@ -399,7 +537,13 @@
         }
       }
       .searchicon {
-        #{$dir-mode-align}: 15px;
+        // #{$dir-mode-align}: 15px;
+        body:not(.rtl) & {
+          left: 15px;
+        }
+        body.rtl & {
+          right: 15px;
+        }
       }
     }
     .sidebar-menu {
@@ -430,16 +574,16 @@
           .menu-text {
             display: none;
             position: absolute;
-            #{$dir-mode-align}: 42px;
+            // #{$dir-mode-align}: 42px;
             top: 0;
             width: 195px;
             height: 38px;
             line-height: 38px;
             background-color: #ffffff;
             z-index: 121;
-            padding-#{$dir-mode-align}: 25px;
+            // padding-#{$dir-mode-align}: 25px;
 
-            @if $dir-mode-direction == rtl {
+            /* @if $dir-mode-direction == rtl {
               @include box-shadow(
                 -5px 5px 5px -5px rgba(0, 0, 0, 0.3),
                 -5px 5px 5px -5px rgba(0, 0, 0, 0.3),
@@ -450,6 +594,24 @@
                 5px 5px 5px -5px rgba(0, 0, 0, 0.3),
                 5px 5px 5px -5px rgba(0, 0, 0, 0.3),
                 5px -5px 5px -5px rgba(0, 0, 0, 0.3)
+              );
+            } */
+            body:not(.rtl) & {
+              left: 42px;
+              padding-left: 25px;
+              @include box-shadow(
+                5px 5px 5px -5px rgba(0, 0, 0, 0.3),
+                5px 5px 5px -5px rgba(0, 0, 0, 0.3),
+                5px -5px 5px -5px rgba(0, 0, 0, 0.3)
+              );
+            }
+            body.rtl & {
+              right: 42px;
+              padding-right: 25px;
+              @include box-shadow(
+                -5px 5px 5px -5px rgba(0, 0, 0, 0.3),
+                -5px 5px 5px -5px rgba(0, 0, 0, 0.3),
+                -5px -5px 5px -5px rgba(0, 0, 0, 0.3)
               );
             }
 
@@ -466,7 +628,13 @@
             > .menu-text {
               border: 0;
               top: 0;
-              #{$dir-mode-align}: 42px;
+              // #{$dir-mode-align}: 42px;
+              body:not(.rtl) & {
+                left: 42px;
+              }
+              body.rtl & {
+                right: 42px;
+              }
               width: 195px;
               border-bottom: 1px solid #f3f3f3;
               @include box-shadow(none);
@@ -480,7 +648,7 @@
           background: #fbfbfb;
           position: absolute;
           z-index: 120;
-          #{$dir-mode-align}: 42px;
+          // #{$dir-mode-align}: 42px;
           top: 0;
           width: 195px;
           /*-webkit-box-shadow: none;
@@ -488,8 +656,8 @@
           box-shadow: none;*/
           padding-top: 38px;
           display: none;
-          border-#{$dir-mode-align}: 1px solid #f3f3f3;
-          @if $dir-mode-direction == rtl {
+          // border-#{$dir-mode-align}: 1px solid #f3f3f3;
+          /* @if $dir-mode-direction == rtl {
             @include box-shadow(
               -5px 5px 5px -5px rgba(0, 0, 0, 0.3),
               -5px 5px 5px -5px rgba(0, 0, 0, 0.3),
@@ -501,16 +669,48 @@
               5px 5px 5px -5px rgba(0, 0, 0, 0.3),
               5px -5px 5px -5px rgba(0, 0, 0, 0.3)
             );
+          } */
+          body:not(.rtl) & {
+            left: 42px;
+            border-left: 1px solid #f3f3f3;
+            @include box-shadow(
+              5px 5px 5px -5px rgba(0, 0, 0, 0.3),
+              5px 5px 5px -5px rgba(0, 0, 0, 0.3),
+              5px -5px 5px -5px rgba(0, 0, 0, 0.3)
+            );
+          }
+          body.rtl & {
+            right: 42px;
+            border-right: 1px solid #f3f3f3;
+            @include box-shadow(
+              -5px 5px 5px -5px rgba(0, 0, 0, 0.3),
+              -5px 5px 5px -5px rgba(0, 0, 0, 0.3),
+              -5px -5px 5px -5px rgba(0, 0, 0, 0.3)
+            );
           }
           li {
             > a {
-              margin-#{$dir-mode-align}: 0;
-              padding-#{$dir-mode-align}: 24px;
+              // margin-#{$dir-mode-align}: 0;
+              // padding-#{$dir-mode-align}: 24px;
+              body:not(.rtl) & {
+                margin-left: 0;
+                padding-left: 24px;
+              }
+              body.rtl & {
+                margin-right: 0;
+                padding-right: 24px;
+              }
             }
             &.open {
               > .submenu {
                 display: block;
-                #{$dir-mode-align}: 0;
+                // #{$dir-mode-align}: 0;
+                body:not(.rtl) & {
+                  left: 0;
+                }
+                body.rtl & {
+                  right: 0;
+                }
                 position: relative;
                 @include box-shadow(none);
               }
@@ -526,13 +726,25 @@
               background-color: #ffffff;
               &:before {
                 display: block;
-                #{$dir-mode-align}: 0;
+                // #{$dir-mode-align}: 0;
+                body:not(.rtl) & {
+                  left: 0;
+                }
+                body.rtl & {
+                  right: 0;
+                }
               }
             }
             &.active {
               &:not(.open) {
                 &:before {
-                  #{$dir-mode-align}: 0;
+                  // #{$dir-mode-align}: 0;
+                  body:not(.rtl) & {
+                    left: 0;
+                  }
+                  body.rtl & {
+                    right: 0;
+                  }
                 }
               }
             }
@@ -592,10 +804,22 @@
     }
   }
   .breadcrumbs-fixed {
-    #{$dir-mode-align}: 0 !important;
+    // #{$dir-mode-align}: 0 !important;
+    body:not(.rtl) & {
+      left: 0 !important;
+    }
+    body.rtl & {
+      right: 0 !important;
+    }
   }
   .page-header-fixed {
-    #{$dir-mode-align}: 0 !important;
+    // #{$dir-mode-align}: 0 !important;
+    body:not(.rtl) & {
+      left: 0 !important;
+    }
+    body.rtl & {
+      right: 0 !important;
+    }
   }
 }
 
@@ -607,33 +831,87 @@
         display: block !important;
       }
       ~ .page-content {
-        margin-#{$dir-mode-align}: 224px !important;
+        // margin-#{$dir-mode-align}: 224px !important;
+        body:not(.rtl) & {
+          margin-left: 224px !important;
+        }
+        body.rtl & {
+          margin-right: 224px !important;
+        }
         .breadcrumbs-fixed {
-          #{$dir-mode-align}: 224px !important;
+          // #{$dir-mode-align}: 224px !important;
+          body:not(.rtl) & {
+            left: 224px !important;
+          }
+          body.rtl & {
+            right: 224px !important;
+          }
         }
         .page-header-fixed {
-          #{$dir-mode-align}: 224px !important;
+          // #{$dir-mode-align}: 224px !important;
+          body:not(.rtl) & {
+            left: 224px !important;
+          }
+          body.rtl & {
+            right: 224px !important;
+          }
         }
       }
     }
     &.menu-compact {
       ~ .page-content {
-        margin-#{$dir-mode-align}: 0;
+        // margin-#{$dir-mode-align}: 0;
+        body:not(.rtl) & {
+          margin-left: 0;
+        }
+        body.rtl & {
+          margin-right: 0;
+        }
         .breadcrumbs-fixed {
-          #{$dir-mode-align}: 0;
+          // #{$dir-mode-align}: 0;
+          body:not(.rtl) & {
+            left: 0;
+          }
+          body.rtl & {
+            right: 0;
+          }
         }
         .page-header-fixed {
-          #{$dir-mode-align}: 0;
+          // #{$dir-mode-align}: 0;
+          body:not(.rtl) & {
+            left: 0;
+          }
+          body.rtl & {
+            right: 0;
+          }
         }
       }
       &.hide {
         ~ .page-content {
-          margin-#{$dir-mode-align}: 46px !important;
+          // margin-#{$dir-mode-align}: 46px !important;
+          body:not(.rtl) & {
+            margin-left: 46px !important;
+          }
+          body.rtl & {
+            margin-right: 46px !important;
+          }
           .breadcrumbs-fixed {
-            #{$dir-mode-align}: 46px !important;
+            // #{$dir-mode-align}: 46px !important;
+            body:not(.rtl) & {
+              left: 46px !important;
+            }
+            body.rtl & {
+              right: 46px !important;
+            }
           }
           .page-header-fixed {
-            #{$dir-mode-align}: 46px !important;
+            // #{$dir-mode-align}: 46px !important;
+            body:not(.rtl) & {
+              left: 46px !important;
+            }
+            body.rtl & {
+              right: 46px !important;
+            }
           }
         }
       }
