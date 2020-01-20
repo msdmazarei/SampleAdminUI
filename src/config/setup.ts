@@ -52,11 +52,11 @@ export const Setup: ISetup = {
     },
     recordDefaultLoadLength: 10,
     internationalization: {
-        /* rtl: true,
+        rtl: true,
         language: 'فارسی',
-        flag: 'fa', */
-        rtl: false,
+        flag: 'fa',
+        /* rtl: false,
         language: 'english',
-        flag: 'en',
+        flag: 'en', */
     }
 };
