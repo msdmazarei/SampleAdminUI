@@ -215,7 +215,7 @@ class LoginComponent extends BaseComponent<IProps, IState> {
                                 />
                             </div>
                             <div className="loginbox-forgot">
-                                <a href="">Forgot Password?</a>
+                                <a >{Localization.forgot_password}</a>
                             </div>
                             <div className="loginbox-submit">
                                 {/* <input type="button" className="btn btn-primary btn-block" value="Login" /> */}

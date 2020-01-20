@@ -9,6 +9,7 @@ import { Dashboard } from '../../dashboard/Dashboard';
 import { Profile } from '../../profile/Profile';
 import { LayoutMainNotFound } from './main/not-found/NotFound';
 import { RouteLayoutMain } from './main/Main';
+import { Blank } from '../../blank/Blank';
 
 const appValidUserRoutes = (
     <HashRouter>
@@ -16,6 +17,7 @@ const appValidUserRoutes = (
             <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
             <RouteLayoutMain exact path="/dashboard" component={Dashboard} />
             <RouteLayoutMain path="/profile" component={Profile} />
+            <RouteLayoutMain path="/blank" component={Blank} />
             
             {/* keep "cmp LayoutMainNotFound" last */}
             <RouteLayoutMain component={LayoutMainNotFound} />

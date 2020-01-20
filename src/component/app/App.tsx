@@ -18,6 +18,7 @@ const appRoutes = (
       <Route exact path="/" component={() => <Redirect to="/dashboard" />} />
       <RouteLayoutValidUser exact path="/dashboard" />
       <RouteLayoutValidUser path="/profile" />
+      <RouteLayoutValidUser path="/blank" />
 
       <RouteLayoutAccount path="/login" component={Login} />
       <RouteLayoutAccount path="/register" component={Register} />

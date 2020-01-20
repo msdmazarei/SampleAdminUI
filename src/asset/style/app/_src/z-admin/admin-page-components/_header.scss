@@ -123,6 +123,7 @@
 
 .page-header .header-buttons a.active {
   color: $admin-primary-color;
+  @include box-shadow(0 0 20px rgba(0, 0, 0, 0.2)); // added
 }
 
 .page-header .header-buttons a i {
