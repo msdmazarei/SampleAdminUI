@@ -9,8 +9,6 @@ import { IToken } from '../model/model.token';
 import { reducer as TokenReducer } from './reducer/token';
 import { reducer as AuthenticationReducer } from './reducer/authentication';
 import { reducer as NetworkStatusReducer } from './reducer/network-status';
-
-// import logger from 'redux-logger';
 //
 import { persistStore, persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
@@ -26,23 +24,13 @@ const reducers: ReducersMapObject<redux_state, AnyAction> = { // Action
 
 const main_reducer = combineReducers(reducers);
 
-// export const Store = createStore(main_reducer, applyMiddleware(logger));
-
-//////////////////////////////////////////////////
-
 const persistConfig = {
   key: 'root',
   storage,
-  // blacklist: ['reader_engine'],
+  // blacklist: [],
 }
 
 const persistedReducer = persistReducer(persistConfig, main_reducer)
 
-/* export default () => {
-  let store = createStore(persistedReducer)
-  let persistor = persistStore(store)
-  return { store, persistor }
-} */
-// export const Store2 = createStore(persistedReducer, applyMiddleware(logger));
 export const Store2 = createStore(persistedReducer);
 export const persistor = persistStore(Store2);

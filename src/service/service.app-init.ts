@@ -1,5 +1,4 @@
 import { BaseService } from './service.base';
-// import { appLocalStorage } from './appLocalStorage';
 
 export class AppInitService extends BaseService {
 
