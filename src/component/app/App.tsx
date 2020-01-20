@@ -9,6 +9,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect, HashRouter } from 're
 import { RouteLayoutValidUser } from '../layout/valid-user/ValidUser';
 import { RouteLayoutAccount } from '../layout/account/Account';
 import { Login } from '../login/Login';
+import { Register } from '../register/Register';
 
 const appRoutes = (
   <HashRouter>
@@ -19,7 +20,7 @@ const appRoutes = (
       <RouteLayoutValidUser path="/profile" />
 
       <RouteLayoutAccount path="/login" component={Login} />
-      {/* <RouteLayoutAccount path="/register" component={Register} /> */}
+      <RouteLayoutAccount path="/register" component={Register} />
       {/* <RouteLayoutAccount path="/forgot-password" component={ForgotPassword} /> */}
 
       <RouteLayoutValidUser />

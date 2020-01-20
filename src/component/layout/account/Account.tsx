@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { LayoutAccountHeader } from './header/Header';
-import { LayoutAccountFooter } from './footer/Footer';
+// import { LayoutAccountHeader } from './header/Header';
+// import { LayoutAccountFooter } from './footer/Footer';
 import { MapDispatchToProps, connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { redux_state } from '../../../redux/app_state';
@@ -43,17 +43,9 @@ class LayoutAccountComponent extends React.Component<IProps> {
     render() {
         return (
             <>
-                <div className="layout-account-wrapper">
-                    <LayoutAccountHeader />
-                    <main className="main mx-3">
-                        <div className="row">
-                            <div className="col-md-4 offset-md-4">
-                                {this.props.children}
-                            </div>
-                        </div>
-                    </main>
-                    <LayoutAccountFooter />
-                </div>
+                {/* <LayoutAccountHeader /> */}
+                {this.props.children}
+                {/* <LayoutAccountFooter /> */}
             </>
         )
     }

@@ -17,7 +17,6 @@ export interface IProps {
 
 class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
     isMenuActive(pathname: string): boolean {
-        console.log(this.props.history.location);
         return this.props.history.location.pathname === pathname;
     }
 
@@ -35,27 +34,9 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
 
                         <li className={this.isMenuActive('/dashboard') ? "active" : ''}>
                             <NavLink to="/dashboard" className="text-capitalize">
-                                <i className="menu-icon fa fa-home"></i>
+                                <i className="menu-icon fa fa-dashboard"></i>
                                 <span className="menu-text"> {Localization.dashboard} </span>
                             </NavLink>
-                            {/* <a href="index.html">
-                                <i className="menu-icon fa fa-home"></i>
-                                <span className="menu-text"> {Localization.dashboard} </span>
-                            </a> */}
-                        </li>
-
-                        <li>
-                            <a href="databoxes.html">
-                                <i className="menu-icon fa fa-tasks"></i>
-                                <span className="menu-text"> Data Boxes </span>
-                            </a>
-                        </li>
-
-                        <li>
-                            <a href="widgets.html">
-                                <i className="menu-icon fa fa-th"></i>
-                                <span className="menu-text"> Widgets </span>
-                            </a>
                         </li>
 
                         <li>
