@@ -118,14 +118,8 @@ class LoginComponent extends BaseComponent<IProps, IState> {
     render() {
         return (
             <>
-                <h2 className="title mt-4 mb-3">{Localization.sign_in}</h2>
-                <h3 className="desc">{Localization.sign_in_bookstore_account}</h3>
-                <div className="forgot-password text-right mb-3">
-                    <NavLink activeClassName="active__" to="/forgot-password">
-                        {Localization.forgot_password}
-                    </NavLink>
-                </div>
-                <div className="account-form">
+
+                {/* <div className="account-form">
                     <div className="input-wrapper">
                         <Input
                             defaultValue={this.state.username.value}
@@ -167,22 +161,87 @@ class LoginComponent extends BaseComponent<IProps, IState> {
                             {Localization.sign_in}
                         </BtnLoader>
                     </div>
+                </div> */}
+
+
+
+
+                <div>
+                    <div className="login-container animated fadeInDown">
+                        <div className="loginbox bg-white">
+                            <div className="loginbox-title text-uppercase">{Localization.sign_in}</div>
+                            <div className="loginbox-social">
+                                <div className="social-title ">Connect with Your Social Accounts</div>
+                                <div className="social-buttons">
+                                    <a className="button-facebook">
+                                        <i className="social-icon fa fa-facebook"></i>
+                                    </a>
+                                    <a className="button-twitter">
+                                        <i className="social-icon fa fa-twitter"></i>
+                                    </a>
+                                    <a className="button-google">
+                                        <i className="social-icon fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                            <div className="loginbox-or">
+                                <div className="or-line"></div>
+                                <div className="or">OR</div>
+                            </div>
+                            {/* <div className="loginbox-textbox">
+                                <input type="text" className="form-control" placeholder="Username" />
+                            </div> */}
+                            <div className="loginbox-textbox">
+                                <Input
+                                    defaultValue={this.state.username.value}
+                                    onChange={(val, isValid) => { this.handleInputChange(val, isValid, 'username') }}
+                                    required
+                                    elRef={input => { this.inputUsername = input; }}
+                                    placeholder={Localization.username}
+                                    onKeyUp={(e) => this.handle_keyUp(e)}
+                                />
+                            </div>
+                            {/* <div className="loginbox-textbox">
+                                <input type="password" className="form-control" placeholder="Password" />
+                            </div> */}
+                            <div className="loginbox-textbox">
+                                <Input
+                                    defaultValue={this.state.password.value}
+                                    onChange={(val, isValid) => { this.handleInputChange(val, isValid, 'password') }}
+                                    required
+                                    type={this.state.inputPasswordType}
+                                    placeholder={Localization.password}
+                                    onKeyUp={(e) => this.handle_keyUp(e)}
+                                />
+                            </div>
+                            <div className="loginbox-forgot">
+                                <a href="">Forgot Password?</a>
+                            </div>
+                            <div className="loginbox-submit">
+                                {/* <input type="button" className="btn btn-primary btn-block" value="Login" /> */}
+
+                                <BtnLoader
+                                    btnClassName="btn btn-primary btn-block"
+                                    loading={this.state.btnLoader}
+                                    onClick={() => this.onLogin()}
+                                    disabled={!this.state.isFormValid}
+                                >
+                                    {Localization.login}
+                                </BtnLoader>
+                            </div>
+                            <div className="loginbox-signup">
+                                <NavLink exact to="/register">
+                                    {Localization.register}
+                                </NavLink>
+                                {/* <a href="register.html">{Localization.register}</a> */}
+                            </div>
+                        </div>
+                        <div className="logobox">
+                        </div>
+                    </div>
                 </div>
-                <section>
-                    <p>
-                        {Localization.formatString(
-                            Localization.login_agree_msg.a,
-                            <span>{Localization.login_agree_msg.b}</span>,
-                            <span>{Localization.login_agree_msg.c}</span>
-                        )}
-                    </p>
-                    <p>
-                        {Localization.new_to_Bookstore} &nbsp;
-                        <NavLink to="/register">
-                            {Localization.need_free_bookstore_account}
-                        </NavLink>
-                    </p>
-                </section>
+
+
 
                 <ToastContainer {...this.getNotifyContainerConfig()} />
             </>
