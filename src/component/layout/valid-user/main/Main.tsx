@@ -7,6 +7,10 @@ import { Dispatch } from 'redux';
 import { redux_state } from '../../../../redux/app_state';
 import { History } from "history";
 import { LayoutMainSidebar } from './sidebar/Sidebar';
+import { action_update_theme } from '../../../../redux/action/theme';
+import { ITheme_schema } from '../../../../redux/action/theme/themeAction';
+import { TInternationalization } from '../../../../config/setup';
+import { BaseComponent } from '../../../_base/BaseComponent';
 
 export const RouteLayoutMain = ({ component: Component, ...rest }: { [key: string]: any }) => {
     return (
@@ -21,17 +25,18 @@ export const RouteLayoutMain = ({ component: Component, ...rest }: { [key: strin
 interface IProps {
     history: History;
     match: any;
+    internationalization: TInternationalization;
+    theme: ITheme_schema;
+    update_theme?: (theme: ITheme_schema) => any;
 }
 
 interface IState {
     fullscreen: boolean;
-    isSidebarHide: boolean;
 }
 
-class LayoutMainComponent extends React.Component<IProps, IState> {
+class LayoutMainComponent extends BaseComponent<IProps, IState> {
     state = {
         fullscreen: false,
-        isSidebarHide: false
     }
 
     reloadApp() {
@@ -56,10 +61,11 @@ class LayoutMainComponent extends React.Component<IProps, IState> {
     }
 
     toggleSidebar() {
-        if (this.state.isSidebarHide) {
-            this.setState({ isSidebarHide: false });
+        if (!this.props.update_theme) return;
+        if (this.props.theme.isSidebarHide) {
+            this.props.update_theme({ ...this.props.theme, isSidebarHide: false });
         } else {
-            this.setState({ isSidebarHide: true });
+            this.props.update_theme({ ...this.props.theme, isSidebarHide: true });
         }
     }
 
@@ -101,7 +107,7 @@ class LayoutMainComponent extends React.Component<IProps, IState> {
                                 <div className="header-buttons">
                                     <a className={
                                         "sidebar-toggler cursor-pointer "
-                                        + (this.state.isSidebarHide ? 'active' : '')
+                                        + (this.props.theme.isSidebarHide ? 'active' : '')
                                     }
                                         onClick={() => this.toggleSidebar()}>
                                         <i className="fa fa-arrows-h"></i>
@@ -134,11 +140,14 @@ class LayoutMainComponent extends React.Component<IProps, IState> {
 
 const dispatch2props: MapDispatchToProps<{}, {}> = (dispatch: Dispatch) => {
     return {
+        update_theme: (theme: ITheme_schema) => dispatch(action_update_theme(theme)),
     }
 }
 
 const state2props = (state: redux_state) => {
     return {
+        internationalization: state.internationalization,
+        theme: state.theme,
     }
 }
 

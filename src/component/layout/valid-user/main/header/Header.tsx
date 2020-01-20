@@ -12,6 +12,8 @@ import { Dropdown } from 'react-bootstrap';
 import { TInternationalization } from '../../../../../config/setup';
 import { action_change_app_flag } from '../../../../../redux/action/internationalization';
 import { BaseComponent } from '../../../../_base/BaseComponent';
+import { ITheme_schema } from '../../../../../redux/action/theme/themeAction';
+import { action_update_theme } from '../../../../../redux/action/theme';
 
 interface IProps {
     history: History;
@@ -20,6 +22,8 @@ interface IProps {
     logged_in_user: IUser | null;
     internationalization: TInternationalization;
     change_app_flag?: (internationalization: TInternationalization) => void;
+    theme: ITheme_schema;
+    update_theme?: (theme: ITheme_schema) => any;
 }
 interface IState {
 }
@@ -66,6 +70,15 @@ class LayoutMainHeaderComponent extends BaseComponent<IProps, IState> {
         this.onApplogout(this.props.history);
     }
 
+    private toggleCompactSidebar() {
+        if (!this.props.update_theme) return;
+        if (this.props.theme.sidebar === 'compact') {
+            this.props.update_theme({ ...this.props.theme, sidebar: 'default' });
+        } else {
+            this.props.update_theme({ ...this.props.theme, sidebar: 'compact' });
+        }
+    }
+
     render() {
         const logged_in_user = this.props.logged_in_user;
         const username = logged_in_user ? logged_in_user.username : '';
@@ -86,7 +99,12 @@ class LayoutMainHeaderComponent extends BaseComponent<IProps, IState> {
                                 </a>
                             </div> */}
 
-                            <div className="sidebar-collapse" id="sidebar-collapse">
+                            <div className={
+                                "sidebar-collapse "
+                                + (this.props.theme.sidebar === 'compact' ? 'active' : '')
+                            }
+                                onClick={() => this.toggleCompactSidebar()}
+                            >
                                 <i className="collapse-icon fa fa-bars"></i>
                             </div>
 
@@ -506,6 +524,7 @@ class LayoutMainHeaderComponent extends BaseComponent<IProps, IState> {
 const dispatch2props: MapDispatchToProps<{}, {}> = (dispatch: Dispatch) => {
     return {
         change_app_flag: (internationalization: TInternationalization) => dispatch(action_change_app_flag(internationalization)),
+        update_theme: (theme: ITheme_schema) => dispatch(action_update_theme(theme)),
     }
 }
 
@@ -514,6 +533,7 @@ const state2props = (state: redux_state) => {
         internationalization: state.internationalization,
         network_status: state.network_status,
         logged_in_user: state.logged_in_user,
+        theme: state.theme,
     }
 }
 

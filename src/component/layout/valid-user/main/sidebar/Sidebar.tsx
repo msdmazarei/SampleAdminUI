@@ -8,11 +8,13 @@ import { BaseComponent } from "../../../../_base/BaseComponent";
 import { History } from "history";
 import { Localization } from "../../../../../config/localization/localization";
 import { NavLink } from "react-router-dom";
+import { ITheme_schema } from "../../../../../redux/action/theme/themeAction";
 
 export interface IProps {
     internationalization: TInternationalization;
-    logged_in_user?: IUser | null;
+    // logged_in_user?: IUser | null;
     history: History;
+    theme: ITheme_schema;
 }
 
 class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
@@ -27,7 +29,11 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
     render() {
         return (
             <>
-                <div className="page-sidebar" id="sidebar">
+                <div className={
+                    "page-sidebar "
+                    + (this.props.theme.isSidebarHide ? 'hide ' : '')
+                    + (this.props.theme.sidebar === 'compact' ? 'menu-compact ' : '')
+                }>
                     <div className="sidebar-header-wrapper">
                         <input type="text" className="searchinput" />
                         <i className="searchicon fa fa-search"></i>
@@ -142,7 +148,8 @@ const dispatch2props: MapDispatchToProps<{}, {}> = (dispatch: Dispatch) => {
 const state2props = (state: redux_state) => {
     return {
         internationalization: state.internationalization,
-        logged_in_user: state.logged_in_user,
+        // logged_in_user: state.logged_in_user,
+        theme: state.theme,
     }
 }
 
