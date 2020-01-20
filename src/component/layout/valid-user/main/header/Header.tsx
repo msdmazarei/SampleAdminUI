@@ -321,7 +321,7 @@ class LayoutMainHeaderComponent extends BaseComponent<IProps, IState> {
                                                 <i className="icon fa fa-comment"></i>
                                             </a>
                                         </li>
-                                        <Dropdown as="li" >
+                                        <Dropdown as="li">
                                             <Dropdown.Toggle
                                                 as="a"
                                                 id="dropdown-login-area"
@@ -335,7 +335,9 @@ class LayoutMainHeaderComponent extends BaseComponent<IProps, IState> {
                                                 </section>
                                             </Dropdown.Toggle>
 
-                                            <Dropdown.Menu as="ul" className="pull-right dropdown-arrow dropdown-login-area">
+                                            <Dropdown.Menu flip={false} as="ul"
+                                                className="pull-right dropdown-arrow dropdown-login-area"
+                                            >
                                                 <li className="username"><a>{username}</a></li>
                                                 <li className="email"><a>{email}</a></li>
 

@@ -326,6 +326,8 @@
 
               margin-top: 0; // bts 3 --> 4
               // top: calc(100% - 5px) !important; // react-bootstrap: transform: translate3d(0px, 5px, 0px);
+              transform: none !important; // --> react-bootstrap
+              top: 100% !important; // --> react-bootstrap
 
               li {
                 background-color: #ffffff;
