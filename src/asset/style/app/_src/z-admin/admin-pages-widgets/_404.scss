@@ -70,7 +70,13 @@
 }
 
 .return-btn i {
-  margin-#{$dir-mode-align-inverse}: 5px;
+  // margin-#{$dir-mode-align-inverse}: 5px;
+  body:not(.rtl) & {
+    margin-right: 5px;
+  }
+  body.rtl & {
+    margin-left: 5px;
+  }
 }
 
 .return-btn:hover {

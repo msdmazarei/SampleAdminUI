@@ -7,9 +7,10 @@ import { History } from "history";
 import { BrowserRouter as Router, Route, Switch, Redirect, HashRouter } from 'react-router-dom';
 import { Dashboard } from '../../dashboard/Dashboard';
 import { Profile } from '../../profile/Profile';
-import { LayoutMainNotFound } from './main/not-found/NotFound';
 import { RouteLayoutMain } from './main/Main';
 import { Blank } from '../../blank/Blank';
+import { LayoutNoWrapNotFound } from './no-wrap/not-found/NotFound';
+import { RouteLayoutNoWrap } from './no-wrap/NoWrap';
 
 const appValidUserRoutes = (
     <HashRouter>
@@ -19,8 +20,8 @@ const appValidUserRoutes = (
             <RouteLayoutMain path="/profile" component={Profile} />
             <RouteLayoutMain path="/blank" component={Blank} />
             
-            {/* keep "cmp LayoutMainNotFound" last */}
-            <RouteLayoutMain component={LayoutMainNotFound} />
+            {/* keep "cmp LayoutNoWrapNotFound" last */}
+            <RouteLayoutNoWrap component={LayoutNoWrapNotFound} />
         </Switch>
     </HashRouter>
 );
