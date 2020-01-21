@@ -73,9 +73,9 @@ class LayoutMainHeaderComponent extends BaseComponent<IProps, IState> {
     private toggleCompactSidebar() {
         if (!this.props.update_theme) return;
         if (this.props.theme.sidebar === 'compact') {
-            this.props.update_theme({ ...this.props.theme, sidebar: 'default' });
+            this.props.update_theme({ ...this.props.theme, sidebar: 'default', isSidebarHide: false });
         } else {
-            this.props.update_theme({ ...this.props.theme, sidebar: 'compact' });
+            this.props.update_theme({ ...this.props.theme, sidebar: 'compact', isSidebarHide: false });
         }
     }
 
