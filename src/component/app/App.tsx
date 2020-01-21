@@ -8,8 +8,8 @@ import { redux_state } from '../../redux/app_state';
 import { BrowserRouter as Router, Route, Switch, Redirect, HashRouter } from 'react-router-dom';
 import { RouteLayoutValidUser } from '../layout/valid-user/ValidUser';
 import { RouteLayoutAccount } from '../layout/account/Account';
-import { Login } from '../login/Login';
-import { Register } from '../register/Register';
+import { Login } from '../page/login/Login';
+import { Register } from '../page/register/Register';
 
 const appRoutes = (
   <HashRouter>

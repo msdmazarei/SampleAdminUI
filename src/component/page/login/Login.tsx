@@ -1,22 +1,22 @@
 import React from 'react';
-import { LoginService } from '../../service/service.login';
-import { Input } from '../form/input/Input';
-import { redux_state } from '../../redux/app_state';
+import { LoginService } from '../../../service/service.login';
+import { Input } from '../../form/input/Input';
+import { redux_state } from '../../../redux/app_state';
 import { Dispatch } from 'redux';
-import { IUser } from '../../model/model.user';
-import { action_user_logged_in } from '../../redux/action/user';
+import { IUser } from '../../../model/model.user';
+import { action_user_logged_in } from '../../../redux/action/user';
 import { connect } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import { Localization } from '../../config/localization/localization';
+import { Localization } from '../../../config/localization/localization';
 import { NavLink } from 'react-router-dom';
-import { BtnLoader } from '../form/btn-loader/BtnLoader';
-import { BaseComponent } from '../_base/BaseComponent';
-import { TInternationalization } from '../../config/setup';
-import { IToken } from '../../model/model.token';
-import { action_set_token } from '../../redux/action/token';
+import { BtnLoader } from '../../form/btn-loader/BtnLoader';
+import { BaseComponent } from '../../_base/BaseComponent';
+import { TInternationalization } from '../../../config/setup';
+import { IToken } from '../../../model/model.token';
+import { action_set_token } from '../../../redux/action/token';
 import { History } from 'history';
-import { action_set_authentication } from '../../redux/action/authentication';
-import { Utility } from '../../asset/script/utility';
+import { action_set_authentication } from '../../../redux/action/authentication';
+import { Utility } from '../../../asset/script/utility';
 
 type inputType = 'username' | 'password';
 

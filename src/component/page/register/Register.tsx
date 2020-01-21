@@ -1,12 +1,12 @@
 import React from 'react';
-import { redux_state } from '../../redux/app_state';
+import { redux_state } from '../../../redux/app_state';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import { BaseComponent } from '../_base/BaseComponent';
-import { TInternationalization } from '../../config/setup';
+import { BaseComponent } from '../../_base/BaseComponent';
+import { TInternationalization } from '../../../config/setup';
 import { History } from 'history';
-import { Localization } from '../../config/localization/localization';
+import { Localization } from '../../../config/localization/localization';
 import { NavLink } from 'react-router-dom';
 
 interface IState {

@@ -5,10 +5,10 @@ import { redux_state } from '../../../redux/app_state';
 import { IUser } from '../../../model/model.user';
 import { History } from "history";
 import { BrowserRouter as Router, Route, Switch, Redirect, HashRouter } from 'react-router-dom';
-import { Dashboard } from '../../dashboard/Dashboard';
-import { Profile } from '../../profile/Profile';
+import { Dashboard } from '../../page/dashboard/Dashboard';
+import { Profile } from '../../page/profile/Profile';
 import { RouteLayoutMain } from './main/Main';
-import { Blank } from '../../blank/Blank';
+import { Blank } from '../../page/blank/Blank';
 import { LayoutNoWrapNotFound } from './no-wrap/not-found/NotFound';
 import { RouteLayoutNoWrap } from './no-wrap/NoWrap';
 

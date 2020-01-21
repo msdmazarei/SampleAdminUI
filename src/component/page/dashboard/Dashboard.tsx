@@ -1,13 +1,13 @@
 import React from "react";
 import { MapDispatchToProps, connect } from "react-redux";
 import { Dispatch } from "redux";
-import { redux_state } from "../../redux/app_state";
-import { IUser } from "../../model/model.user";
-import { TInternationalization } from "../../config/setup";
-import { BaseComponent } from "../_base/BaseComponent";
+import { redux_state } from "../../../redux/app_state";
+import { IUser } from "../../../model/model.user";
+import { TInternationalization } from "../../../config/setup";
+import { BaseComponent } from "../../_base/BaseComponent";
 import { History } from "history";
 import { ToastContainer } from "react-toastify";
-import { NETWORK_STATUS } from "../../enum/NetworkStatus";
+import { NETWORK_STATUS } from "../../../enum/NetworkStatus";
 
 interface IProps {
   logged_in_user: IUser | null;

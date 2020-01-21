@@ -1,10 +1,10 @@
 import React from 'react';
-import { redux_state } from '../../redux/app_state';
+import { redux_state } from '../../../redux/app_state';
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
-import { BaseComponent } from '../_base/BaseComponent';
-import { TInternationalization } from '../../config/setup';
+import { BaseComponent } from '../../_base/BaseComponent';
+import { TInternationalization } from '../../../config/setup';
 
 interface IState {
 }
