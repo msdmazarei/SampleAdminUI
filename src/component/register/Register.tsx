@@ -7,6 +7,7 @@ import { BaseComponent } from '../_base/BaseComponent';
 import { TInternationalization } from '../../config/setup';
 import { History } from 'history';
 import { Localization } from '../../config/localization/localization';
+import { NavLink } from 'react-router-dom';
 
 interface IState {
 }
@@ -59,13 +60,23 @@ class RegisterComponent extends BaseComponent<IProps, IState> {
                             <div className="registerbox-textbox no-padding-bottom">
                                 <div className="checkbox">
                                     <label>
-                                        <input type="checkbox" className="colored-primary" checked />
-                                        <span className="text darkgray">I agree to the Company <a className="themeprimary">Terms of Service</a> and Privacy Policy</span>
+                                        <input type="checkbox" className="colored-primary" defaultChecked />
+                                        <span className="text darkgray-- text-muted">I agree to the Company&nbsp;
+                                        {/* <a className="themeprimary-- text-primary">Terms of Service</a> */}
+                                            <NavLink className="themeprimary-- text-primary" exact to="/register">Terms of Service</NavLink>
+                                            &nbsp;and Privacy Policy
+                                        </span>
                                     </label>
                                 </div>
                             </div>
                             <div className="registerbox-submit">
-                                <input type="button" className="btn btn-primary pull-right" value="SUBMIT" />
+                                <input type="button" className="btn btn-primary pull-right text-uppercase" value={Localization.submit} />
+                            </div>
+                            <div className="clearfix"></div>
+                            <div className="registerbox-textbox text-center">
+                                <NavLink exact to="/login" className="text-muted">
+                                    {Localization.login}
+                                </NavLink>
                             </div>
                         </div>
                         <div className="logobox">

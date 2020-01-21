@@ -3,7 +3,6 @@ import { redux_state } from "../../../../../redux/app_state";
 import { MapDispatchToProps, connect } from 'react-redux';
 import { Dispatch } from 'redux';
 import { TInternationalization } from "../../../../../config/setup";
-import { IUser } from "../../../../../model/model.user";
 import { BaseComponent } from "../../../../_base/BaseComponent";
 import { History } from "history";
 import { Localization } from "../../../../../config/localization/localization";
@@ -12,7 +11,6 @@ import { ITheme_schema } from "../../../../../redux/action/theme/themeAction";
 
 export interface IProps {
     internationalization: TInternationalization;
-    // logged_in_user?: IUser | null;
     history: History;
     theme: ITheme_schema;
 }
@@ -54,10 +52,6 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
                                 <i className="menu-icon fa fa-picture-o"></i>
                                 <span className="menu-text"> {Localization.profile} </span>
                             </NavLink>
-                            {/* <a href="profile.html">
-                                <i className="menu-icon fa fa-picture-o"></i>
-                                <span className="menu-text">Profile</span>
-                            </a> */}
                         </li>
 
                         <li className={this.isMenuOpen(['/blank']) ? 'open' : ''}>
@@ -73,14 +67,11 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
 
                             <ul className="submenu">
                                 <li>
-                                    <a href="error-404.html">
+                                    <NavLink to="/404" className="text-capitalize">
                                         <span className="menu-text">Error 404</span>
-                                    </a>
+                                    </NavLink>
                                 </li>
                                 <li className={this.isMenuActive('/blank') ? "active" : ''}>
-                                    {/* <a href="blank.html">
-                                        <span className="menu-text">Blank Page</span>
-                                    </a> */}
                                     <NavLink to="/blank" className="text-capitalize">
                                         <span className="menu-text">Blank Page</span>
                                     </NavLink>
@@ -148,7 +139,6 @@ const dispatch2props: MapDispatchToProps<{}, {}> = (dispatch: Dispatch) => {
 const state2props = (state: redux_state) => {
     return {
         internationalization: state.internationalization,
-        // logged_in_user: state.logged_in_user,
         theme: state.theme,
     }
 }
