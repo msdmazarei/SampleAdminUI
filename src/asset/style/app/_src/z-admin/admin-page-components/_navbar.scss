@@ -1380,6 +1380,9 @@
                   > li {
                     &.username {
                       display: block;
+                      > a {
+                        display: block;
+                      }
                     }
                   }
                 }
@@ -1483,6 +1486,8 @@
       }
     }
     .navbar-inner {
+      min-height: 90px; // ?
+      
       .navbar-header {
         float: none !important;
         display: block;
