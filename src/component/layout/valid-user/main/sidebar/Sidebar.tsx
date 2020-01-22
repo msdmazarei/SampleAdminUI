@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { redux_state } from "../../../../../redux/app_state";
 import { MapDispatchToProps, connect } from 'react-redux';
 import { Dispatch } from 'redux';
@@ -8,6 +8,7 @@ import { History } from "history";
 import { Localization } from "../../../../../config/localization/localization";
 import { NavLink } from "react-router-dom";
 import { ITheme_schema } from "../../../../../redux/action/theme/themeAction";
+import { AppRoute, IAppRoute, IRoute, IRouteParent } from '../../../../../config/route';
 
 export interface IProps {
     internationalization: TInternationalization;
@@ -22,6 +23,55 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
 
     isMenuOpen(pathname_list: string[]): boolean {
         return pathname_list.includes(this.props.history.location.pathname);
+    }
+
+    toggleMenuOpen(e: any) {
+        // debugger;
+        const PE = e.target ? e.target.parentElement : undefined;
+        if (PE === undefined) return;
+        if (PE.classList.contains('open')) {
+            PE.classList.remove('open');
+        } else {
+            PE.classList.add('open');
+        }
+    }
+
+    generateMenu(routes: IAppRoute): JSX.Element {
+        return (<>
+            {routes.map((item, index) => {
+                const isWrapper = (item as any).children !== undefined;
+                return (<Fragment key={index}>
+                    {
+                        isWrapper ?
+                            <li className={this.isMenuOpen(AppRoute.getAllPathList((item as IRouteParent))) ? 'open' : ''}>
+                                <a className="menu-dropdown cursor-pointer"
+                                    onClick={(e) => this.toggleMenuOpen(e)}
+                                >
+                                    <i className={`menu-icon ${item.icon}`}></i>
+                                    <span className="menu-text"> {Localization[item.name] || item.name} </span>
+                                    <i className="menu-expand"></i>
+                                </a>
+                                <ul className="submenu">
+                                    {this.generateMenu((item as IRouteParent).children)}
+                                </ul>
+                            </li>
+                            :
+                            <li className={this.isMenuActive((item as IRoute).path) ? "active" : ''}>
+                                <NavLink to={(item as IRoute).path} className="text-capitalize">
+                                    <i className={`menu-icon ${item.icon}`}></i>
+                                    <span className="menu-text"> {Localization[item.name] || item.name} </span>
+                                </NavLink>
+                            </li>
+                    }
+                </Fragment>);
+            })}
+        </>)
+    }
+    renderSidebarMenu(): JSX.Element {
+        const routes = AppRoute.getRoutes();
+        return (
+            <>{this.generateMenu(routes)}</>
+        )
     }
 
     render() {
@@ -40,21 +90,23 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
 
                     <ul className="nav sidebar-menu">
 
-                        <li className={this.isMenuActive('/dashboard') ? "active" : ''}>
+                        {this.renderSidebarMenu()}
+
+                        {/* <li className={'d-none ' + this.isMenuActive('/dashboard') ? "active" : ''}>
                             <NavLink to="/dashboard" className="text-capitalize">
                                 <i className="menu-icon fa fa-dashboard"></i>
                                 <span className="menu-text"> {Localization.dashboard} </span>
                             </NavLink>
                         </li>
 
-                        <li className={this.isMenuActive('/profile') ? "active" : ''}>
+                        <li className={'d-none ' + this.isMenuActive('/profile') ? "active" : ''}>
                             <NavLink to="/profile" className="text-capitalize">
                                 <i className="menu-icon fa fa-picture-o"></i>
                                 <span className="menu-text"> {Localization.profile} </span>
                             </NavLink>
-                        </li>
+                        </li> */}
 
-                        <li className={this.isMenuOpen(['/blank']) ? 'open' : ''}>
+                        {/* <li className={'d-none ' + this.isMenuOpen(['/blank']) ? 'open' : ''}>
                             <a className="menu-dropdown cursor-pointer">
                                 <i className="menu-icon fa fa-link"></i>
 
@@ -121,7 +173,7 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
                                     </ul>
                                 </li>
                             </ul>
-                        </li>
+                        </li> */}
 
                     </ul>
 
