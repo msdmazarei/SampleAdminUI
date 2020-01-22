@@ -44,7 +44,7 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
                 return (<Fragment key={index}>
                     {
                         isWrapper ?
-                            <li className={this.isMenuOpen(AppRoute.getAllPathList((item as IRouteParent))) ? 'open' : ''}>
+                            <li className={this.isMenuOpen(AppRoute.getAllChildrenPath((item as IRouteParent))) ? 'open' : ''}>
                                 <a className="menu-dropdown cursor-pointer"
                                     onClick={(e) => this.toggleMenuOpen(e)}
                                 >

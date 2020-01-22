@@ -107,7 +107,7 @@ export class AppRoute {
         return this.routes;
     }
 
-    static getAllPathList(parentRoute: IRouteParent): Array<string> {
+    static getAllChildrenPath(parentRoute: IRouteParent): Array<string> {
         const list: string[] = [];
         const getPath = (children: IRouteParent['children']) => {
             children.forEach(item => {
