@@ -39,6 +39,7 @@ class LayoutMainSidebarComponent extends BaseComponent<IProps, any>{
     generateMenu(routes: IAppRoute): JSX.Element {
         return (<>
             {routes.map((item, index) => {
+                if (!item.sidebarVisible) return (<Fragment key={index}></Fragment>);
                 const isWrapper = (item as any).children !== undefined;
                 return (<Fragment key={index}>
                     {
