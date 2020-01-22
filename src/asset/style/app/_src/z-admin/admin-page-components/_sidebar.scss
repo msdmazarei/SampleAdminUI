@@ -172,6 +172,9 @@
     body.rtl & {
       margin-right: 5px;
     }
+    position: relative; // ?
+    z-index: 2; // ?
+
     a {
       display: block;
       height: 38px;
@@ -263,7 +266,7 @@
       border: 0;
       position: relative;
       width: 100%; // bootstrap 3 --> 4
-      z-index: 2; // ?
+      // z-index: 2; // ?
       &:before {
         display: none;
         content: "";
@@ -344,8 +347,8 @@
           content: "";
           display: block;
           position: absolute;
-          // z-index: 1;
-          z-index: 3; // ?
+          z-index: 1;
+          // z-index: 3; // ?
           // #{$dir-mode-align}: 23px;
           top: 0;
           bottom: 19px;
