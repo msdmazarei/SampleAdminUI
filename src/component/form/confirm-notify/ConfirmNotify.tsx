@@ -20,6 +20,7 @@ interface IProps {
     btnLoader?: boolean;
     confirmBtn_className?: string;
     confirmBtn_text?: string | (() => JSX.Element);
+    closeBtn_text?: string | (() => JSX.Element);
 }
 
 interface IState {
@@ -47,7 +48,13 @@ class ConfirmNotifyComponent extends BaseComponent<IProps, IState> {
                     </Modal.Body>
                     <Modal.Footer className="pt-0 border-top-0">
                         <button className="btn btn-light-- btn-sm text-uppercase min-w-70px" onClick={() => this.closeModal()}>
-                            {Localization.close}
+                            {
+                                this.props.closeBtn_text ?
+                                    (typeof this.props.closeBtn_text === 'string' ?
+                                        this.props.closeBtn_text : this.props.closeBtn_text())
+                                    :
+                                    Localization.close
+                            }
                         </button>
                         <BtnLoader
                             btnClassName={"btn text-primary btn-sm text-uppercase min-w-70px " + this.props.confirmBtn_className}
