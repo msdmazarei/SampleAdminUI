@@ -118,130 +118,90 @@ class LoginComponent extends BaseComponent<IProps, IState> {
     render() {
         return (
             <>
-
-                {/* <div className="account-form">
-                    <div className="input-wrapper">
-                        <Input
-                            defaultValue={this.state.username.value}
-                            onChange={(val, isValid) => { this.handleInputChange(val, isValid, 'username') }}
-                            required
-                            elRef={input => { this.inputUsername = input; }}
-                            placeholder={Localization.username}
-                            onKeyUp={(e) => this.handle_keyUp(e)}
-                        />
-                        <div className="separator"></div>
-                        <Input
-                            defaultValue={this.state.password.value}
-                            onChange={(val, isValid) => { this.handleInputChange(val, isValid, 'password') }}
-                            required
-                            type={this.state.inputPasswordType}
-                            placeholder={Localization.password}
-                            onKeyUp={(e) => this.handle_keyUp(e)}
-                        />
-                    </div>
-
-                    <div className="form-group">
-                        <input type="checkbox" className="app-checkbox"
-                            id={this.showPasswordCheckBoxId}
-                            onChange={() => this.toggleShowPassword()}
-                        />
-                        <label htmlFor={this.showPasswordCheckBoxId}></label>
-                        <label htmlFor={this.showPasswordCheckBoxId}>
-                            <h6 className="ml-2">{Localization.Show_password}</h6>
-                        </label>
-                    </div>
-
-                    <div className="form-group">
-                        <BtnLoader
-                            btnClassName="btn btn-warning btn-block btn-account"
-                            loading={this.state.btnLoader}
-                            onClick={() => this.onLogin()}
-                            disabled={!this.state.isFormValid}
-                        >
-                            {Localization.sign_in}
-                        </BtnLoader>
-                    </div>
-                </div> */}
-
-
-
-
-                <div>
-                    <div className="login-container animated fadeInDown">
-                        <div className="loginbox bg-white">
-                            <div className="loginbox-title text-uppercase">{Localization.sign_in}</div>
-                            <div className="loginbox-social">
-                                <div className="social-title ">Connect with Your Social Accounts</div>
-                                <div className="social-buttons">
-                                    <a className="button-facebook">
+                <div className="login-container animated fadeInDown">
+                    <div className="loginbox bg-white">
+                        <div className="loginbox-title text-uppercase">{Localization.sign_in}</div>
+                        <div className="loginbox-social">
+                            <div className="social-title ">Connect with Your Social Accounts</div>
+                            <div className="social-buttons">
+                                {/* <a className="button-facebook">
                                         <i className="social-icon fa fa-facebook"></i>
-                                    </a>
-                                    <a className="button-twitter">
+                                    </a> */}
+                                <NavLink exact to="/login" className="button-facebook">
+                                    <i className="social-icon fa fa-facebook"></i>
+                                </NavLink>
+                                {/* <a className="button-twitter">
                                         <i className="social-icon fa fa-twitter"></i>
-                                    </a>
-                                    <a className="button-google">
+                                    </a> */}
+                                <NavLink exact to="/login" className="button-twitter">
+                                    <i className="social-icon fa fa-twitter"></i>
+                                </NavLink>
+                                {/* <a className="button-google">
                                         <i className="social-icon fa fa-google-plus"></i>
-                                    </a>
-                                </div>
+                                    </a> */}
+                                <NavLink exact to="/login" className="button-google">
+                                    <i className="social-icon fa fa-google-plus"></i>
+                                </NavLink>
                             </div>
-                            <div className="loginbox-or">
-                                <div className="or-line"></div>
-                                <div className="or">OR</div>
-                            </div>
-                            {/* <div className="loginbox-textbox">
+                        </div>
+                        <div className="loginbox-or">
+                            <div className="or-line"></div>
+                            <div className="or">OR</div>
+                        </div>
+                        {/* <div className="loginbox-textbox">
                                 <input type="text" className="form-control" placeholder="Username" />
                             </div> */}
-                            <div className="loginbox-textbox">
-                                <Input
-                                    defaultValue={this.state.username.value}
-                                    onChange={(val, isValid) => { this.handleInputChange(val, isValid, 'username') }}
-                                    required
-                                    elRef={input => { this.inputUsername = input; }}
-                                    placeholder={Localization.username}
-                                    onKeyUp={(e) => this.handle_keyUp(e)}
-                                />
-                            </div>
-                            {/* <div className="loginbox-textbox">
+                        <div className="loginbox-textbox">
+                            <Input
+                                defaultValue={this.state.username.value}
+                                onChange={(val, isValid) => { this.handleInputChange(val, isValid, 'username') }}
+                                required
+                                elRef={input => { this.inputUsername = input; }}
+                                placeholder={Localization.username}
+                                onKeyUp={(e) => this.handle_keyUp(e)}
+                            />
+                        </div>
+                        {/* <div className="loginbox-textbox">
                                 <input type="password" className="form-control" placeholder="Password" />
                             </div> */}
-                            <div className="loginbox-textbox">
-                                <Input
-                                    defaultValue={this.state.password.value}
-                                    onChange={(val, isValid) => { this.handleInputChange(val, isValid, 'password') }}
-                                    required
-                                    type={this.state.inputPasswordType}
-                                    placeholder={Localization.password}
-                                    onKeyUp={(e) => this.handle_keyUp(e)}
-                                />
-                            </div>
-                            <div className="loginbox-forgot">
-                                <a >{Localization.forgot_password}</a>
-                            </div>
-                            <div className="loginbox-submit">
-                                {/* <input type="button" className="btn btn-primary btn-block" value="Login" /> */}
-
-                                <BtnLoader
-                                    btnClassName="btn btn-primary btn-block"
-                                    loading={this.state.btnLoader}
-                                    onClick={() => this.onLogin()}
-                                    disabled={!this.state.isFormValid}
-                                >
-                                    {Localization.login}
-                                </BtnLoader>
-                            </div>
-                            <div className="loginbox-signup">
-                                <NavLink exact to="/register">
-                                    {Localization.register}
-                                </NavLink>
-                                {/* <a href="register.html">{Localization.register}</a> */}
-                            </div>
+                        <div className="loginbox-textbox">
+                            <Input
+                                defaultValue={this.state.password.value}
+                                onChange={(val, isValid) => { this.handleInputChange(val, isValid, 'password') }}
+                                required
+                                type={this.state.inputPasswordType}
+                                placeholder={Localization.password}
+                                onKeyUp={(e) => this.handle_keyUp(e)}
+                            />
                         </div>
-                        <div className="logobox">
+                        <div className="loginbox-forgot">
+                            {/* <a >{Localization.forgot_password}</a> */}
+                            <NavLink exact to="/login">
+                                {Localization.forgot_password}
+                            </NavLink>
+                        </div>
+                        <div className="loginbox-submit">
+                            {/* <input type="button" className="btn btn-primary btn-block" value="Login" /> */}
+
+                            <BtnLoader
+                                btnClassName="btn btn-primary btn-block"
+                                loading={this.state.btnLoader}
+                                onClick={() => this.onLogin()}
+                                disabled={!this.state.isFormValid}
+                            >
+                                {Localization.login}
+                            </BtnLoader>
+                        </div>
+                        <div className="loginbox-signup">
+                            <NavLink exact to="/register">
+                                {Localization.register}
+                            </NavLink>
+                            {/* <a href="register.html">{Localization.register}</a> */}
                         </div>
                     </div>
+                    <div className="logobox">
+                    </div>
                 </div>
-
-
 
                 <ToastContainer {...this.getNotifyContainerConfig()} />
             </>
