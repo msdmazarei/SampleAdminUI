@@ -92,7 +92,7 @@ export abstract class BaseService {
                     // New request with new token
                     const config = error.config;
                     config.headers['authorization'] = `Bearer ${token.data.id}`; // Authorization
-                    config.baseURL = '';
+                    // config.baseURL = '';
 
                     return new Promise((resolve, reject) => {
                         axios.request(config).then(response => {
@@ -124,6 +124,7 @@ export abstract class BaseService {
             headers: { 'Content-Type': 'application/json', 'Authorization': basic }
         });
 
+        console.log('remove me', instance);
         return Promise.resolve({ data: { expiration_date: 1, id: '1', username: 'jafar1' } });
 
         // return instance.post('/tokens', {});
