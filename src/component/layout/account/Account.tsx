@@ -26,7 +26,7 @@ interface IProps {
 
 class LayoutAccountComponent extends React.Component<IProps> {
 
-    componentWillMount() {
+    componentDidMount() {
         if (this.props.logged_in_user) {
             this.props.history.push("/dashboard");
         }

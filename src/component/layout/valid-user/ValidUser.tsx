@@ -19,7 +19,7 @@ const appValidUserRoutes = (
             <RouteLayoutMain exact path="/dashboard" component={Dashboard} />
             <RouteLayoutMain path="/profile" component={Profile} />
             <RouteLayoutMain path="/blank" component={Blank} />
-            
+
             {/* keep "cmp LayoutNoWrapNotFound" last */}
             <RouteLayoutNoWrap component={LayoutNoWrapNotFound} />
         </Switch>
@@ -42,13 +42,10 @@ interface IProps {
 
 class LayoutValidUserComponent extends React.Component<IProps> {
 
-    componentWillMount() {
-        // debugger;
+    componentDidMount() {
         if (!this.props.logged_in_user) {
             this.props.history.push("/login");
-
         } else {
-
         }
     }
 
