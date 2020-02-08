@@ -11,6 +11,7 @@ export interface IRoute extends IRouteBase {
     // pageTitle?: string;
     pageTitleVisible: boolean;
     // permission: () => boolean;
+    isMe?: (path: string) => boolean;
 }
 
 export interface IRouteParent extends IRouteBase {
@@ -18,6 +19,9 @@ export interface IRouteParent extends IRouteBase {
 }
 
 export type IAppRoute = Array<IRoute | IRouteParent>;
+
+export type TBreadcrumbItem = IRouteParent | (IRoute & { itIsMe: boolean });
+export type TBreadcrumb = Array<TBreadcrumbItem>;
 
 export class AppRoute {
     private static readonly routes: IAppRoute = [
@@ -27,7 +31,11 @@ export class AppRoute {
             sidebarVisible: true,
             pageTitleVisible: true,
             breadcrumbVisible: true,
-            icon: 'fa fa-dashboard'
+            icon: 'fa fa-dashboard',
+            isMe: (path) => {
+                if (path.includes('dashboard')) return true;
+                return false;
+            }
         },
         {
             path: '/profile',
@@ -119,6 +127,64 @@ export class AppRoute {
             });
         };
         getPath(parentRoute.children);
+        return list;
+    }
+
+    static getRouteByPath(path: string): IRoute | undefined {
+        let rtn: IRoute | undefined;
+
+        const findRoute = (rs: Array<IRouteParent | IRoute>) => {
+            for (let i = 0; i < rs.length; i++) {
+                const r = rs[i];
+                if (r.hasOwnProperty('path')) {
+                    const cr = r as IRoute;
+                    if (cr.isMe && cr.isMe(path)) {
+                        rtn = cr;
+                        break;
+                    } else if (cr.path === path) {
+                        rtn = cr;
+                        break;
+                    }
+                } else if (r.hasOwnProperty('children')) {
+                    findRoute((r as IRouteParent).children);
+                    if (rtn) break;
+                }
+            }
+        };
+        findRoute(this.routes);
+
+        return rtn;
+    }
+
+    static getBreadcrumbsByPath(path: string): TBreadcrumb {
+        const list: TBreadcrumb = [];
+        let found = false;
+
+        const findRoute = (rs: Array<IRouteParent | IRoute>) => {
+            for (let i = 0; i < rs.length; i++) {
+                const r = rs[i];
+                if (r.hasOwnProperty('path')) {
+                    const cr = r as IRoute;
+                    if (cr.isMe && cr.isMe(path)) {
+                        list.push({ ...cr, itIsMe: true });
+                        found = true;
+                        break;
+                    } else if (cr.path === path) {
+                        list.push({ ...cr, itIsMe: true });
+                        found = true;
+                        break;
+                    }
+                } else if (r.hasOwnProperty('children')) {
+                    findRoute((r as IRouteParent).children);
+                    if (found) {
+                        list.unshift(r as IRouteParent);
+                        break;
+                    }
+                }
+            }
+        };
+        findRoute(this.routes);
+
         return list;
     }
 
