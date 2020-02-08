@@ -11,6 +11,8 @@ import { RouteLayoutMain } from './main/Main';
 import { Blank } from '../../page/blank/Blank';
 import { LayoutNoWrapNotFound } from './no-wrap/not-found/NotFound';
 import { RouteLayoutNoWrap } from './no-wrap/NoWrap';
+import { UserManage } from '../../page/user/user-manage/userManage';
+import { UserSave } from '../../page/user/user-save/userSave';
 
 const appValidUserRoutes = (
     <HashRouter>
@@ -19,6 +21,9 @@ const appValidUserRoutes = (
             <RouteLayoutMain exact path="/dashboard" component={Dashboard} />
             <RouteLayoutMain path="/profile" component={Profile} />
             <RouteLayoutMain path="/blank" component={Blank} />
+
+            <RouteLayoutMain path="/user/manage" component={UserManage} />
+            <RouteLayoutMain path="/user/create" component={UserSave} />
 
             {/* keep "cmp LayoutNoWrapNotFound" last */}
             <RouteLayoutNoWrap component={LayoutNoWrapNotFound} />

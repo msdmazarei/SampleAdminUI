@@ -20,6 +20,9 @@ const appRoutes = (
       <RouteLayoutValidUser path="/profile" />
       <RouteLayoutValidUser path="/blank" />
 
+      <RouteLayoutValidUser path="/user/manage" />
+      <RouteLayoutValidUser path="/user/create" />
+
       <RouteLayoutAccount path="/login" component={Login} />
       <RouteLayoutAccount path="/register" component={Register} />
       {/* <RouteLayoutAccount path="/forgot-password" component={ForgotPassword} /> */}

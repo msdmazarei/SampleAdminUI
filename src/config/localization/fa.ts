@@ -9,6 +9,9 @@ export const fa = {
     brand_name: 'ادمین کاتد',
     dashboard: 'داشبورد',
 
+    user_manage: 'مدیریت کاربر',
+    user: 'کاربر',
+    user_create: 'ایجاد کاربر',
 
     
 

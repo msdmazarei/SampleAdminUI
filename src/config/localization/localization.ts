@@ -21,7 +21,11 @@ interface ILocalization extends LocalizedStringsMethods {
     brand_name: string;
     dashboard: string;
 
-    
+    user_manage: string;
+    user: string;
+    user_create: string;
+
+
 
 
 
@@ -374,7 +378,7 @@ interface ILocalization extends LocalizedStringsMethods {
     text_size: string;
     theme: string;
     font: string;
-    
+
     font_obj: {
         iransans: string;
         nunito: string;
@@ -393,7 +397,7 @@ interface ILocalization extends LocalizedStringsMethods {
         'payment-amount-invalid': string;
     };
     payment_result: string;
-    
+
     change_password: string;
     storage: string;
     clear_general_content: string;

@@ -16,6 +16,7 @@ export interface IRoute extends IRouteBase {
 
 export interface IRouteParent extends IRouteBase {
     children: Array<IRoute | IRouteParent>;
+    link?: string;
 }
 
 export type IAppRoute = Array<IRoute | IRouteParent>;
@@ -107,6 +108,31 @@ export class AppRoute {
                         }
                     ]
                 }
+            ]
+        },
+        {
+            path: '/user/manage',
+            name: 'user_manage',
+            sidebarVisible: true,
+            pageTitleVisible: true,
+            breadcrumbVisible: true,
+            icon: 'fa fa-user'
+        },
+        {
+            name: 'user',
+            sidebarVisible: false,
+            breadcrumbVisible: true,
+            icon: 'fa fa-user',
+            link: '/user/manage',
+            children: [
+                {
+                    path: '/user/create',
+                    name: 'user_create',
+                    sidebarVisible: true,
+                    pageTitleVisible: true,
+                    breadcrumbVisible: true,
+                    icon: 'fa fa-user-plus'
+                },
             ]
         }
     ];

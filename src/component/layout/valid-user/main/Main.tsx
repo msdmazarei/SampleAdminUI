@@ -97,12 +97,24 @@ class LayoutMainComponent extends BaseComponent<IProps, IState> {
                     </Fragment>;
                 }
             } else {
-                return <Fragment key={index}>
-                    <li>
-                        {r.icon ? <i className={r.icon}></i> : ''}
-                        {Localization[r.name] || r.name}
-                    </li>
-                </Fragment>;
+                if (r.hasOwnProperty('link')) {
+                    return <Fragment key={index}>
+                        <li>
+                            <NavLink to={(r as any).link} className="text-capitalize">
+                                {r.icon ? <i className={r.icon}></i> : ''}
+                                <span className="menu-text">{Localization[r.name] || r.name}</span>
+                            </NavLink>
+                        </li>
+                    </Fragment>;
+                }
+                else {
+                    return <Fragment key={index}>
+                        <li>
+                            {r.icon ? <i className={r.icon}></i> : ''}
+                            {Localization[r.name] || r.name}
+                        </li>
+                    </Fragment>;
+                }
             }
         });
     }

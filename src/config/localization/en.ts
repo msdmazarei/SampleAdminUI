@@ -9,6 +9,10 @@ export const en = {
     brand_name: 'catodAdmin',
     dashboard: 'dashboard',
 
+    user_manage: 'user manage',
+    user: 'user',
+    user_create: 'user create',
+
 
 
 
