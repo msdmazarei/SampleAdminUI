@@ -141,7 +141,9 @@ class LayoutMainHeaderComponent extends BaseComponent<IProps, IState> {
                                                 <li className="edit">
                                                     {/* <a href="/profile.html" className="pull-left">Profile</a> */}
                                                     {/* <a href="#" className="pull-right">Setting</a> */}
-                                                    <NavLink to="/profile" className="pull-left text-capitalize" activeClassName="active">
+                                                    
+                                                    <NavLink to="/profile" className="pull-left text-capitalize"
+                                                        activeClassName="active pointer-events-none">
                                                         {Localization.profile}
                                                     </NavLink>
                                                 </li>
